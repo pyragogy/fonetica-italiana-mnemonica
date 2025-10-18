@@ -43,8 +43,8 @@ A differenza della versione originale, pensata per lingue come l’inglese o il 
 | **5** | Velare dolce        | **C (dolce), G (dolce)**     | *Cinque, Gelo*       | “Cinque” e “Gelo” condividono un suono dolce e fluido.                |
 | **6** | Sibilante dolce     | **S, SC (dolce)**            | *Sei, Sciarpa*       | “Sei” inizia con S; evoca la scia, il suono che serpeggia.            |
 | **7** | Velare dura         | **K, C (dura), Q, G (dura)** | *Kilo, Cuore, Gatto* | Due 7 formano una K: linee che si incrociano in forza.                |
-| **8** | Labiodentale        | **F, V**                     | *Fiore, Vento, Ufo*  | La “F” scritta assomiglia a un 8; “otto” evoca il nodo infinito (∞).  |
-| **9** | Labiale             | **P, B**                     | *Palla, Boa, Ape*    | La “P” rovesciata ricorda un 9; un suono che chiude le labbra.        |
+| **8** | Labiodentale        | **B, V**                     | *Boa, Vento, Via*    | La “F” scritta assomiglia a un 8; “otto” evoca il nodo infinito (∞).  |
+| **9** | Labiale             | **P, F**                     | *Palla, Fiore, Ufo*  | La “P” rovesciata ricorda un 9; un suono che chiude le labbra.        |
 
 ---
 
