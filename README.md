@@ -89,7 +89,7 @@ Queste regole adattano il sistema alla **Matrice Fonetica Base Italiana**, perme
 
 ---
 
-## 🧬 Esempi Pratici (Griglia 00–19 Corretta)
+## 🧬 Esempi Pratici (Griglia 00–19)
 
 Questa griglia segue fedelmente la **Matrice Fonetica Base Italiana**.
 La colonna “Numero” rappresenta le coppie di cifre (00, 01, 02... 19).
