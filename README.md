@@ -193,7 +193,7 @@ Per creare immagini mnemoniche efficaci, segui questi principi scientificamente 
 **Narrazione mnemonica dettagliata:**
 > "Tino (3-1) e Rino (4-1) stanno dipingendo un CIPPO (5-9) di marmo. Tino tiene in mano un pennello che gocciola vernice rossa, mentre Rino sistema un nido di rondini in cima al cippo. Il sole splende forte e l'aria è piena del profumo di fiori appena sbocciati."
 
-### Esempio 2: Numero 2023 (anno corrente)
+### Esempio 2: Numero 2023 
 
 **Conversione passo-passo:**
 - 2 → D
@@ -332,6 +332,9 @@ Il sistema evolve continuamente grazie ai contributi della comunità. Ogni parte
 **Quanto tempo ci vuole per imparare il sistema?**  
 La matrice base (0-9) si impara in 1-2 settimane con pratica quotidiana. La padronanza completa richiede 1-2 mesi di esercizio regolare.
 
+**Perché 'L' e 'M' non sono usate come nel Major System?** 
+Eco System le lascia come 'consonanti libere' per dare molta più flessibilità nella creazione di parole italiane significative (es. per 31 (T-N) si può usare 'TiNo' ma anche 'TeLoNe', 'ToMaNo', ecc.
+
 **Funziona con numeri molto lunghi?**  
 Sì, il sistema scala bene. Per numeri lunghi si usano narrazioni che collegano più immagini, o si divide il numero in segmenti.
 
@@ -343,6 +346,7 @@ Puoi inventare parole o usare nomi propri, l'importante è che l'immagine mental
 
 **È compatibile con altri sistemi mnemonici?**  
 Sì, Eco System può essere integrato con il metodo dei loci, i palazzi della memoria, e altre tecniche di memoria.
+
 
 **Posso usare Eco System per memorizzare cose diverse dai numeri?**  
 Sì! Il sistema può essere adattato per memorizzare:
