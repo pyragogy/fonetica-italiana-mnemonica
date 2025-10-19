@@ -23,7 +23,13 @@
 
 ## Introduzione
 
-**Eco System** rappresenta l'evoluzione del pensiero mnemonico italiano, un sistema completo e coerente per trasformare numeri in immagini mentali durature attraverso la fonetica italiana. Il nome deriva dall'idea che ogni numero "riecheggi" in suoni consonantici che si trasformano in immagini mentali, creando un ecosistema di memoria personale.
+**Eco System** è un sistema fonetico-mnemonico, progettato per la lingua italiana e ispirato al classico *Major System*, trasforma le sequenze numeriche in **immagini mentali vivide** attraverso una mappatura dei suoni consonantici.  
+Il risultato è un metodo naturale, intuitivo e duraturo per potenziare la memoria e la capacità di associazione.
+
+Il nome **Eco System** nasce dall’idea che ogni numero produca un “eco” fonetico che ritorna come immagine, creando un vero e proprio **ecosistema della mente**, dove suono, parola e immaginazione si alimentano a vicenda.
+
+> “Non è solo una tecnica di memoria, ma un linguaggio che trasforma i numeri in immagini e le immagini in pensiero.  
+
 
 ## Cos'è Eco System?
 
@@ -295,24 +301,29 @@ Per creare immagini mnemoniche efficaci, segui questi principi scientificamente 
 
 ## Comunità e Sviluppo
 
-### Eco System Italia: La Community
+### Eco System Italia: la comunità
 
-Il sistema Eco System è supportato da una comunità attiva di appassionati di mnemotecnica. Puoi unirti a:
+Questo progetto vive grazie a una rete di persone che sperimentano, migliorano e condividono un nuovo modo di pensare la memoria.  
+Non è solo una community di appassionati di mnemotecnica, ma un laboratorio collettivo dove idee, esperienze e metodi si contaminano.
 
-- **Forum Online**: Per domande, suggerimenti e condivisione di esperienze
-- **Gruppi di Studio**: Sessioni virtuali settimanali di esercitazione
-- **Eventi di Memoria**: Competizioni amatoriali di memorizzazione
+Puoi partecipare attraverso:
 
-### Processo di Sviluppo Collaborativo
+- **Forum e canali online** — per discutere, proporre, scambiare intuizioni e materiali.  
+- **Gruppi di studio** — incontri virtuali settimanali per esercitarsi e confrontare strategie.  
+- **Eventi di memoria** — sessioni aperte e competizioni amatoriali per mettere alla prova il sistema.
 
-Eco System è un sistema in evoluzione, migliorato continuamente grazie ai contributi della comunità:
+### Un processo di crescita collaborativa
 
-1. **Proponi**: Condividi nuove parole chiave o regole migliorative
-2. **Discudi**: Partecipa a conversazioni sulla validità delle proposte
-3. **Testa**: Verifica le nuove associazioni con esercizi pratici
-4. **Integra**: Le migliori proposte vengono incorporate nel sistema
+Il sistema evolve continuamente grazie ai contributi della comunità. Ogni partecipante può influire direttamente sul suo sviluppo:
 
-**Codice di Condotta**: Rispetto, collaborazione e curiosità sono i nostri valori fondamentali.
+1. **Proponi** — nuove parole chiave, regole, approcci o varianti fonetiche.  
+2. **Discuta** — metti alla prova le idee con argomentazioni, test e confronto diretto.  
+3. **Sperimenta** — verifica nella pratica cosa funziona davvero.  
+4. **Integra** — le soluzioni più efficaci diventano parte del sistema comune.
+
+> L’obiettivo non è solo costruire uno strumento più efficiente, ma **coltivare un ecosistema di pensiero condiviso**, dove la memoria diventa terreno di ricerca e creatività collettiva.
+
+**Codice di condotta:** rispetto, collaborazione e curiosità sono i nostri principi guida.
 
 ## FAQ
 
@@ -351,4 +362,4 @@ Questo progetto è stato creato e viene aggiornato da **Fabrizio Terzi**.
 
 ---
 
-*Eco System: Il Sistema Fonetico Mnemonico Italiano è un progetto in costante evoluzione, basato su principi scientifici solidi e feedback della comunità. Con il giusto impegno e pratica, chiunque può sviluppare una memoria eccezionale!*
+*Eco System: Il Sistema Fonetico Mnemonico Italiano è un progetto in costante evoluzione, basato su principi scientifici solidi e feedback della comunità. Imparare Eco System non significa solo ricordare meglio, ma vedere diversamente: trasformare i numeri in storie, e la memoria in un’arte.*
