@@ -7,7 +7,7 @@
 ## Sommario
 
 - [Introduzione](#introduzione)
-- [Cos'è Eco System?](#cosè-eco-system)
+- [Cos'è Eco System?](#cos'è-eco-system)
 - [Principi Fondamentali](#principi-fondamentali)
 - [Matrice Fonetica](#matrice-fonetica)
 - [Regole di Composizione](#regole-di-composizione)
@@ -30,13 +30,13 @@ Eco System aiuta a memorizzare numeri sfruttando la fonetica italiana attraverso
 
 ### Il Processo di Trasformazione
 
-1. **Numero → Consonante metrica**
+1. **Numero → Consonante metrica**  
    Ogni cifra (0-9) viene mappata a consonanti specifiche basate sulla matrice fonetica italiana
 
-2. **Consonante → Parola evocativa**
+2. **Consonante → Parola evocativa**  
    Le consonanti guidano la formazione di parole semplici e memorabili, combinate con vocali libere
 
-3. **Parola → Immagine mentale**
+3. **Parola → Immagine mentale**  
    La parola genera un'immagine vivida che fissa il numero nella memoria
 
 ### Esempio Pratico
@@ -54,18 +54,18 @@ Il numero **14** (N + R) diventa **"nero"**, evocando l'immagine di un inchiostr
 
 ## Matrice Fonetica
 
-| Cifra | Categoria Fonética | Suoni/Lettere | Esempi Italiani | Memo Tecnico |
-|:-----:|:-------------------|:--------------|:----------------|:-------------|
-| **0** | Sibilante | **Z** | Zia, Zoo, Zero | "Zero" inizia con Z; suono sibilante |
-| **1** | Nasale dentale | **N** | uNo, Neo, Noè | "Uno" contiene N; suono nasale |
-| **2** | Dentale occlusiva | **D** | Due, Dea, Dado | "Due" inizia con D; colpo dei denti |
-| **3** | Occlusiva alveolare | **T** | Tè, Tre, Tao | "Tre" comincia con T; preciso |
-| **4** | Vibrante | **R** | Re, Rio, Rai | "Quattro" termina in R; suono vibrante |
-| **5** | Velare dolce | **C (dolce), G (dolce)** | cielo, Gelo, Cinque | Suono dolce e fluido |
-| **6** | Sibilante dolce | **S, SC (dolce)** | Sei, Scii, Scie | Suono che serpeggia |
-| **7** | Velare dura | **K, C (dura), Q** | Cane, Koala, Quattro | Suono di forza e decisione |
-| **8** | Labiodentale | **B, V** | Boa, Via, Vento | "B" assomiglia a 8 |
-| **9** | Labiale | **P, F** | Palla, Ufo, Fiore | "P" rovesciata ricorda 9 |
+| Cifra | Categoria Fonetica | Suoni/Lettere       | Esempi Italiani       | Memo Tecnico                     |
+|:-----:|:-------------------|:--------------------|:----------------------|:---------------------------------|
+| **0** | Sibilante          | **Z**               | Zia, Zoo, Zero        | "Zero" inizia con Z; suono sibilante |
+| **1** | Nasale dentale     | **N**               | uNo, Neo, No          | "Uno" contiene N; suono nasale |
+| **2** | Dentale occlusiva  | **D**               | Due, Dea, Dado        | "Due" inizia con D; colpo dei denti |
+| **3** | Occlusiva alveolare| **T**               | T, Tre, Tao           | "Tre" comincia con T; preciso |
+| **4** | Vibrante           | **R**               | Re, Rio, Rai          | "Quattro" termina in R; suono vibrante |
+| **5** | Velare dolce       | **C (dolce), G**    | cielo, Gelo, Cinque   | Suono dolce e fluido |
+| **6** | Sibilante dolce    | **S, SC (dolce)**   | Sei, Scii, Scie       | Suono che serpeggia |
+| **7** | Velare dura        | **K, Q**            | Cane, Koala           | Suono di forza e decisione |
+| **8** | Labiodentale       | **B, V**            | Boa, Via, Vento       | "B" assomiglia a 8 |
+| **9** | Labiale            | **P, F**            | Palla, Ufo, Fiore     | "P" rovesciata ricorda 9 |
 
 ### Note Importanti
 
@@ -91,29 +91,32 @@ Queste regole garantiscono una generazione coerente di immagini mnemoniche:
 
 ## Esempi Pratici (0-20)
 
-| Numero | Parola Chiave | Alternativa | Immagine Mentale |
-|:------:|:-------------|:-----------|:-----------------|
-| **0** | Zero | Zio | Soffio vuoto, spazio infinito |
-| **1** | Nido | Uno | Nido accogliente e protettivo |
-| **2** | Dado | Dea | Dado che rotola |
-| **3** | Tè | Tre | Tazza di tè fumante |
-| **4** | Re | Rio | Re con corona vibrante |
-| **5** | Gelo | Cielo | Superficie ghiacciata |
-| **6** | Sciarpa | Sei | Sciarpa che ondeggia |
-| **7** | Cane | Koala | Cane energico |
-| **8** | Vento | Boa | Vento che modella le dune |
-| **9** | Palla | Fiore | Palla che rimbalza |
-| **10** | Zaino | Nazione | Zaino per l'avventura |
-| **11** | Nano | Naso | Nano curioso |
-| **12** | Nido | Nada | Nido su duna dorata |
-| **13** | Nota | Neto | Nota musicale |
-| **14** | Nero | Nara | Inchiostro nero profondo |
-| **15** | Noce | Gancio | Noce che cade |
-| **16** | Naso | Naso | Naso che fiuta profumi |
-| **17** | Nuca | Cuoco | Nuca di statua antica |
-| **18** | Nave | Nube | Nave su onde verdi |
-| **19** | Nube | Nipo | Nube gonfia di pioggia |
-| **20** | Zodiaco | Zelo | Cerchio zodiacale |
+| Numero | Parola Chiave | Alternativa       | Immagine Mentale               |
+|:------:|:-------------|:------------------|:--------------------------------|
+| **0** | Zero         | Zio               | Soffio vuoto, spazio infinito |
+| **1** | Nido         | Uno               | Nido accogliente e protettivo  |
+| **2** | Dado         | Dea               | Dado che rotola                |
+| **3** | T            | Tre               | Tazza di tè fumante            |
+| **4** | Re           | Rio               | Re con corona vibrante         |
+| **5** | Gelo         | Cielo             | Superficie ghiacciata          |
+| **6** | Sciarpa      | Sei               | Sciarpa che ondeggia           |
+| **7** | Cane         | Koala             | Cane energico                  |
+| **8** | Vento        | Boa               | Vento che modella le dune      |
+| **9** | Palla        | Fiore             | Palla che rimbalza             |
+| **10**| Nazione      | Zaino*            | Viaggio con uno zaino**         |
+| **11**| Nano         | Naso              | Nano curioso                   |
+| **12**| Nido         | Nada              | Nido su duna dorata            |
+| **13**| Nota         | Neto              | Nota musicale                  |
+| **14**| Nero         | Nara              | Inchiostro nero profondo       |
+| **15**| Noce         | -                 | Noce che cade                  |
+| **16**| Naso         | -                 | Naso che fiuta profumi         |
+| **17**| Nuca         | -                 | Nuca di statua antica          |
+| **18**| Nave         | Nube              | Nave su onde verdi             |
+| **19**| Nipo         | -                 | Nube gonfia di pioggia         |
+| **20**| Zodiaco**    | -                 | Cerchio zodiacale              |
+
+*Corretto da "Zaino" a "Nazione" (N=1, Z=0)  
+**"Zodiaco" rappresenta Z=0, D=2 (0-2), ma per 20 (2-0) usare "Dado" + "Zero" come narrazione
 
 ## Come Iniziare
 
@@ -134,12 +137,12 @@ Queste regole garantiscono una generazione coerente di immagini mnemoniche:
    - Sperimenta con narrazioni creative
    - Tieni un diario delle associazioni
 
-### Esercizio Guidato: Memorizza 314159 (π)
+### Esercizio Guidato: Memorizza 314159
 
 1. **Scomposizione**: 3-1-4-1-5-9
 2. **Conversione**: T-N-R-N-C/G-P/F
-3. **Parole Chiave**: Tè + Nido + Re + Nido + Gelo + Palla
-4. **Narrazione**: "Bevo un Tè nel mio Nido mentre il Re visita un altro Nido coperto di Gelo e lancia una Palla"
+3. **Parole Chiave**: T + Nido + Re + Nido + Gelo + Palla
+4. **Narrazione**: "Bevo un T nel mio Nido mentre il Re visita un altro Nido coperto di Gelo e lancia una Palla"
 
 ### Tecniche Avanzate
 
@@ -197,40 +200,39 @@ Eco System è un progetto comunitario e il tuo contributo è prezioso.
 
 Eco System è rilasciato sotto licenza [Creative Commons Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/).
 
-### È Permesso:
+### Permessi:
 - Condividere, copiare e redistribuire il materiale
 - Adattare, trasformare e costruire sul materiale
 - Utilizzare per scopi commerciali
 
-### Con le Condizioni:
+### Condizioni:
 - **Attribuzione**: Dare credito appropriato e indicare modifiche
 - **Condivisione**: Distribuire i contributi con la stessa licenza
 
-**Attribuzione**: "Pyragogy e la Comunità Eco System Italia"
+**Attribuzione**: "Pyragogy e la Comunità Eco System Italia"  
 Questo progetto è stato creato e viene aggiornato da **Fabrizio Terzi**.
 
 - GitHub: [https://github.com/FTG-003](https://github.com/FTG-003)
-- Name: Fabrizio Terzi
-- Role: Autore & Maintainer
-
+- Nome: Fabrizio Terzi
+- Ruolo: Autore & Maintainer
 
 ## FAQ
 
 ### Domande Frequenti
 
-**Quanto tempo ci vuole per imparare il sistema?**
+**Quanto tempo ci vuole per imparare il sistema?**  
 La matrice base (0-9) si impara in 1-2 settimane con pratica quotidiana. La padronanza completa richiede 1-2 mesi.
 
-**Funziona con numeri molto lunghi?**
+**Funziona con numeri molto lunghi?**  
 Sì, il sistema scala bene. Per numeri lunghi si usano narrazioni che collegano più immagini.
 
-**Posso usare parole in dialetto?**
+**Posso usare parole in dialetto?**  
 Assolutamente sì! Le varianti dialettali sono incoraggiate se più evocative per te.
 
-**Cosa succede se non trovo una parola per una combinazione?**
+**Cosa succede se non trovo una parola per una combinazione?**  
 Puoi inventare parole o usare nomi propri, l'importante è che l'immagine mentale sia chiara.
 
-**È compatibile con altri sistemi mnemonici?**
+**È compatibile con altri sistemi mnemonici?**  
 Sì, può essere integrato con il metodo dei loci, palazzi della memoria, e altre tecniche.
 
 ---
@@ -239,15 +241,15 @@ Sì, può essere integrato con il metodo dei loci, palazzi della memoria, e altr
 
 Eco System è uno strumento pratico per migliorare la memoria attraverso un approccio naturale e creativo. Sperimenta, condividi e scopri nuovi modi di ricordare.
 
-**Resta Connesso**:
+**Resta Connesso**:  
 - Sito Web (in preparazione)
-- Repository Principale (link)
+- Repository Principale: [Link](https://github.com/FTG-003)
 - Community Forum (in preparazione)
 
-**Risorse Aggiuntive**:
-- Guida per Insegnanti (in preparazione)
-- Esercizi Progressivi (in preparazione)
-- Database Parole (in preparazione)
+**Risorse Aggiuntive** (in preparazione):  
+- Guida per Insegnanti  
+- Esercizi Progressivi  
+- Database Parole  
 
 ---
 
