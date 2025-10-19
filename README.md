@@ -43,34 +43,35 @@ graph TD
     D --> E[Memoria a Lungo Termine]
 ```
 
-Questo processo sfrutta i principi cognitivi della codifica elaborativa e delle immagini visive, che sono scientificamente provati come i più efficaci per la memorizzazione [citation:4][citation:9].
+Questo processo sfrutta i principi cognitivi della codifica elaborativa e delle immagini visive, che sono scientificamente provati come i più efficaci per la memorizzazione.
 
 ## Base Scientifico-Pedagogica
 
 Il sistema Eco System si fonda su principi cognitivi solidamente stabiliti:
 
-- **Effetto di modalità duplice**: L'integrazione di informazioni verbali e visive potenzia la memorizzazione [citation:4]
-- **Principio di elaborazione distintiva**: Le associazioni personali e vividhe migliorano il richiamo [citation:9]
-- **Teoria del codice duplice**: Le informazioni immagazzinate sia verbalmente che visivamente hanno doppie probabilità di essere ricordate [citation:6]
+- **Effetto di modalità duplice**: L'integrazione di informazioni verbali e visive potenzia la memorizzazione.
+- **Principio di elaborazione distintiva**: Le associazioni personali e vivide migliorano il richiamo.
+- **Teoria del codice duplice**: Le informazioni immagazzinate sia verbalmente che visivamente hanno doppie probabilità di essere ricordate.
 
-Studi mostrano che l'uso di tecniche mnemoniche strutturate come Eco System porta a miglioramenti significativi nella capacità di memoria, con effetti duraturi [citation:4].
+Studi mostrano che l'uso di tecniche mnemoniche strutturate come Eco System porta a miglioramenti significativi nella capacità di memoria, con effetti duraturi.
 
 ## Matrice Fonetica Eco System
 
 La matrice rappresenta il cuore del sistema. Ogni numero è associato a un suono consonantico specifico, con una giustificazione chiara e un esempio di parola italiana:
 
-| Cifra | Lettera | Esempio di parola | Immagine di riferimento | Giustificazione |
-|:-----:|:--------|:-----------------|:------------------------|:----------------|
-| **0** | **Z**   | **Z**ero         | Sibilo, soffio          | "Zero" inizia con Z |
-| **1** | **N**   | **N**ido         | Naso, nodo              | "Uno" contiene N |
-| **2** | **D**   | **D**ue          | Dente, dado             | "Due" inizia con D |
-| **3** | **T**   | **T**re          | Tazza, tavolo           | "Tre" inizia con T |
-| **4** | **R**   | **R**e           | Ruota, ronzio           | "Quattro" termina con R |
-| **5** | **C/G** | **C**ielo/**G**elo | Cibo, gatto            | C/G dolci (CE/CI/GE/GI) |
-| **6** | **S/SC**| **S**ei/**SC**arpa | Sibilo, sciare          | S/SC dolci (SCE/SCI) |
-| **7** | **Q**   | **Q**uando       | Quasi, quota            | Suono unico in italiano |
-| **8** | **B/V** | **B**oat/**V**ento | Bolla, vento           | "B" assomiglia a 8 |
-| **9** | **P/F** | **P**alla/**F**iore | Penna, fuoco           | "P" rovesciata sembra 9 |
+| Cifra | Categoria Fonética | Suoni/Lettere | Esempi Italiani | Memo Tecnico |
+|:-----:|:-------------------|:--------------|:----------------|:-------------|
+| **0** | Sibilante | **Z** | Zia, Zoo, Zero | "Zero" inizia con Z; suono sibilante |
+| **1** | Nasale dentale | **N** | uNo, Neo, Noè | "Uno" contiene N; suono nasale |
+| **2** | Dentale occlusiva | **D** | Due, Dea, Dado | "Due" inizia con D; colpo dei denti |
+| **3** | Occlusiva alveolare | **T** | Tè, Tre, Tao | "Tre" comincia con T; preciso |
+| **4** | Vibrante | **R** | Re, Rio, Rai | "Quattro" termina in R; suono vibrante |
+| **5** | Velare dolce | **C (dolce), G (dolce)** | cielo, Gelo, Cinque | Suono dolce e fluido |
+| **6** | Sibilante dolce | **S, SC (dolce)** | Sei, Scii, Scie | Suono che serpeggia |
+| **7** | Velare dura | **K, C (dura), Q** | Cane, Koala, Quattro | Suono di forza e decisione |
+| **8** | Labiodentale | **B, V** | Boa, Via, Vento | "B" assomiglia a 8 |
+| **9** | Labiale | **P, F** | Palla, Ufo, Fiore | "P" rovesciata ricorda 9 |
+
 
 ### Regole di Memorizzazione della Matrice
 
@@ -87,8 +88,8 @@ Per memorizzare la matrice in modo più efficace:
    - **5**: C/G come "cielo" o "gelo" (suono dolce)
    - **6**: S/SC come "sei" o "scarpa" (sibilo)
    - **7**: Q come "quando" (l'unica Q in italiano)
-   - **8**: B/V come "boat" o "vento" (B assomiglia a 8)
-   - **9**: P/F come "palla" o "fiore" (P rovesciata)
+   - **8**: B/V come "boa" o "via" (B assomiglia a 8)
+   - **9**: P/F come "palla" o "ufo" (P rovesciata)
 
 ## Regole di Codifica e Decodifica
 
@@ -136,7 +137,7 @@ Per memorizzare la matrice in modo più efficace:
 
 ### Principi dell'Immaginazione Efficace
 
-Per creare immagini mnemoniche efficaci, segui questi principi scientificamente validati [citation:3][citation:6]:
+Per creare immagini mnemoniche efficaci, segui questi principi scientificamente validati:
 
 1. **Esagerazione**: Rendi le immagini più grandi, colorate e intense
    - Esempio: Un dado (2) ENORME che rotola verso una tazza (3)
@@ -319,11 +320,11 @@ Eco System è un sistema in evoluzione, migliorato continuamente grazie ai contr
 
 Eco System è stato soggetto a validazione preliminare con i seguenti risultati:
 
-- **Studio Pilota Università di Genova**: 30 partecipanti hanno mostrato un miglioramento del 73% nella memorizzazione di numeri a 5 cifre dopo 2 settimane di training [citation:9]
+- **Studio Pilota Università di Genova**: 30 partecipanti hanno mostrato un miglioramento del 73% nella memorizzazione di numeri a 5 cifre dopo 2 settimane di training.
 
-- **Test di Rendimento**: Utenti regolari (3+ mesi) hanno dimostrato capacità di memorizzazione di sequenze numeriche fino a 20 cifre con accuratezza >90% [citation:4]
+- **Test di Rendimento**: Utenti regolari (3+ mesi) hanno dimostrato capacità di memorizzazione di sequenze numeriche fino a 20 cifre con accuratezza >90%.
 
-- **Ritenzione a Lungo Termine**: Test condotti a 6 mesi dall'addestramento iniziale mostrano un tasso di richiamo del 78% per numeri memorizzati con Eco System [citation:4]
+- **Ritenzione a Lungo Termine**: Test condotti a 6 mesi dall'addestramento iniziale mostrano un tasso di richiamo del 78% per numeri memorizzati con Eco System.
 
 ### Prossimi Passi per la Validazione Completa
 
