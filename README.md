@@ -314,35 +314,6 @@ Eco System è un sistema in evoluzione, migliorato continuamente grazie ai contr
 
 **Codice di Condotta**: Rispetto, collaborazione e curiosità sono i nostri valori fondamentali.
 
-## Validazione del Sistema
-
-### Efficacia Scientificamente Provata
-
-Eco System è stato soggetto a validazione preliminare con i seguenti risultati:
-
-- **Studio Pilota Università di Genova**: 30 partecipanti hanno mostrato un miglioramento del 73% nella memorizzazione di numeri a 5 cifre dopo 2 settimane di training.
-
-- **Test di Rendimento**: Utenti regolari (3+ mesi) hanno dimostrato capacità di memorizzazione di sequenze numeriche fino a 20 cifre con accuratezza >90%.
-
-- **Ritenzione a Lungo Termine**: Test condotti a 6 mesi dall'addestramento iniziale mostrano un tasso di richiamo del 78% per numeri memorizzati con Eco System.
-
-### Prossimi Passi per la Validazione Completa
-
-1. **Studio Sperimentale Controllato**: 
-   - Confronto tra Eco System e altri metodi mnemonici
-   - Campione di 100+ partecipanti
-   - Pubblicazione su riviste specializzate
-
-2. **Validazione Pedagogica**:
-   - Integrazione in programmi educativi per studenti
-   - Analisi dei risultati di apprendimento
-   - Validazione per diverse fasce d'età
-
-3. **Adozione Istituzionale**:
-   - Collaborazione con università italiane
-   - Workshop per insegnanti
-   - Materiali educativi certificati
-
 ## FAQ
 
 ### Domande Frequenti
