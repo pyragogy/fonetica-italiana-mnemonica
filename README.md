@@ -31,20 +31,20 @@ A differenza della versione originale, pensata per lingue come l’inglese o il 
 
 ---
 
-## 🔠 Matrice Fonetica Base (Revisionata)
+## 🔠 Matrice Fonetica Base 
 
 | Digit | Tipo di Suono       | Suoni / Lettere              | Esempi Italiani      | Mnemonico (adattato all’italiano)                                     |
 | :---: | :------------------ | :--------------------------- | :------------------- | :-------------------------------------------------------------------- |
-| **0** | Sibilante           | **Z**                        | *Zio, Zero*          | “Zero” inizia con Z; il suono sibilante richiama il soffio del nulla. |
-| **1** | Nasale dentale      | **N**                        | *uNo, Nido*          | “Uno” contiene una N: un unico filo di suono nasale.                  |
-| **2** | Dentale occlusiva   | **D**                        | *Due, Dado*          | “Due” inizia con D; la lingua tocca i denti due volte.                |
-| **3** | Occlusiva alveolare | **T**                        | *Tre, Tè*            | “Tre” comincia con T; un colpo netto, preciso, come un triangolo.     |
-| **4** | Vibrante            | **R**                        | *Re, Quattro*        | “Quattro” termina in R; un suono che vibra e si arrotola.             |
-| **5** | Velare dolce        | **C (dolce), G (dolce)**     | *Cinque, Gelo*       | “Cinque” e “Gelo” condividono un suono dolce e fluido.                |
-| **6** | Sibilante dolce     | **S, SC (dolce)**            | *Sei, Sciarpa*       | “Sei” inizia con S; evoca la scia, il suono che serpeggia.            |
-| **7** | Velare dura         | **K, C (dura), Q, G (dura)** | *Kilo, Cuore, Gatto* | Due 7 formano una K: linee che si incrociano in forza.                |
-| **8** | Labiodentale        | **B, V**                     | *Boa, Vento, Via*    | La “B” scritta assomiglia a un 8; “otto” evoca il nodo infinito (∞).  |
-| **9** | Labiale             | **P, F**                     | *Palla, Fiore, Ufo*  | La “P” rovesciata ricorda un 9; un suono che chiude le labbra.        |
+| **0** | Sibilante           | **Z**                        | *Zia, Zoo*           | “Zoo” inizia con Z; un suono sibilante.                               |
+| **1** | Nasale dentale      | **N**                        | *uNo, Neo, Noè*      | “Uno” contiene una N: un filo di suono nasale, lineare e sottile.     |
+| **2** | Dentale occlusiva   | **D**                        | *Due, Dea* Do*       | “Due” inizia con D; colpo netto dei denti, preciso.                   |
+| **3** | Occlusiva alveolare | **T**                        | *Tè*, Tao            | “Tre” comincia con T; un colpo netto, preciso, come un triangolo.     |
+| **4** | Vibrante            | **R**                        | *Re, Rio, Rai*       | “Quattro” termina in R; un suono che vibra e si arrotola, dinamico.   |
+| **5** | Velare dolce        | **C (dolce), G (dolce)**     | *cielo, Gelo*        | “Cinque” e “Gelo” condividono un suono dolce e fluido.                |
+| **6** | Sibilante dolce     | **S, SC (dolce)**            | *Sei, Scii, Scie*    | “Sei” inizia con S; evoca la scia, un suono che serpeggia.            |
+| **7** | Velare dura         | **K, C (dura), Q,**          | *Cane, Koala*        | Due 7 formano una K: suona come K; forza, taglio netto e deciso.      |
+| **8** | Labiodentale        | **B, V**                     | *Boa, Via*           | La “B” scritta assomiglia a un 8; “otto” evoca il nodo infinito (∞).  |
+| **9** | Labiale             | **P, F**                     | *Palla, Ufo*         | La “P” rovesciata ricorda un 9; un suono che chiude le labbra.        |
 
 ---
 
