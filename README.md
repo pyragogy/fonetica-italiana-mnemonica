@@ -40,7 +40,7 @@ A differenza della versione originale, pensata per lingue come l’inglese o il 
 | **2** | Dentale occlusiva   | **D**                        | *Due, Dea* Do*       | “Due” inizia con D; colpo netto dei denti, preciso.                   |
 | **3** | Occlusiva alveolare | **T**                        | *Tè*, Tao            | “Tre” comincia con T; un colpo netto, preciso, come un triangolo.     |
 | **4** | Vibrante            | **R**                        | *Re, Rio, Rai*       | “Quattro” termina in R; un suono che vibra e si arrotola, dinamico.   |
-| **5** | Velare dolce        | **C (dolce), G (dolce)**     | *cielo, Gelo*        | “Cinque” e “Gelo” condividono un suono dolce e fluido.                |
+| **5** | Velare dolce        | **C (dolce), G (dolce)**     | *Cielo, Gelo*        | “Cinque” e “Gelo” condividono un suono dolce e fluido.                |
 | **6** | Sibilante dolce     | **S, SC (dolce)**            | *Sei, Scii, Scie*    | “Sei” inizia con S; evoca la scia, un suono che serpeggia.            |
 | **7** | Velare dura         | **K, C (dura), Q,**          | *Cane, Koala*        | Due 7 formano una K: suona come K; forza, taglio netto e deciso.      |
 | **8** | Labiodentale        | **B, V**                     | *Boa, Via*           | La “B” scritta assomiglia a un 8; “otto” evoca il nodo infinito (∞).  |
