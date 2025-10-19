@@ -72,9 +72,9 @@ La matrice rappresenta il cuore del sistema. Ogni numero è associato a un suono
 | **2** | Dentale occlusiva | **D** | Due, Dea, Dado | "Due" inizia con D; colpo dei denti |
 | **3** | Occlusiva alveolare | **T** | Tè, Tre, Tao | "Tre" comincia con T; preciso |
 | **4** | Vibrante | **R** | Re, Rio, Rai | "Quattro" termina in R; suono vibrante |
-| **5** | Velare dolce | **C (dolce), G (dolce)** | cielo, Gelo, Cinque | Suono dolce e fluido |
+| **5** | Dolce | **C (dolce), G (dolce)** | cielo, Gelo, Cinque | Suono dolce e fluido |
 | **6** | Sibilante dolce | **S, SC (dolce)** | Sei, Scii, Scie | Suono che serpeggia |
-| **7** | Velare dura | **K, C (dura), Q** | Cane, Koala, Quattro | Suono di forza e decisione |
+| **7** | Dura | **K, C (dura), Q** | Cane, Koala, Quattro | Suono di forza e decisione |
 | **8** | Labiodentale | **B, V** | Boa, Via, Vento | "B" assomiglia a 8 |
 | **9** | Labiale | **P, F** | Palla, Ufo, Fiore | "P" rovesciata ricorda 9 |
 
@@ -218,11 +218,11 @@ Per creare immagini mnemoniche efficaci, segui questi principi scientificamente 
 - 3 → T
 
 **Parole chiave:**
-- C/G + Zero + Nido → "Canzone"
+- C + Z + N → "Calzino" 
 - D + T → "Dito"
 
 **Narrazione mnemonica:**
-> "Una CANZONE (5-0-1) melodiosa esce da un NIDO (1) d'uccello. Il nido è posato su un DADO (2) che si trasforma in un DITO (3) che suona una chitarra immaginaria."
+> "Il calzino finisce nel frullatore del smoothie mentre col dito premo turbo per nascondere le prove prima che arrivino gli amici"
 
 ## Approccio Strutturato all'Apprendimento
 
