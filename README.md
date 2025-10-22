@@ -21,6 +21,8 @@
 - [FAQ](#faq)
 - [Riferimenti](#riferimenti)
 
+[Read this in English](README_EN.md)
+
 ## Introduzione
 
 **Eco System** è un sistema fonetico-mnemonico, progettato per la lingua italiana e ispirato al classico *Major System*, trasforma le sequenze numeriche in **immagini mentali vivide** attraverso una mappatura dei suoni consonantici.  

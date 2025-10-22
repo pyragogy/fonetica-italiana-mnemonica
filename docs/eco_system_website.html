@@ -1,0 +1,1612 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco System - Il Sistema Mnemonico Italiano</title>
+    <meta name="description" content="Sistema fonetico mnemonico ottimizzato per l'italiano. Trasforma numeri in immagini mentali indelebili.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #1A202C;
+            --bg-card: #2D3748;
+            --text-primary: #F7FAFC;
+            --text-secondary: #A0AEC0;
+            --accent-blue: #4299E1;
+            --accent-green: #48BB78;
+            --accent-magenta: #ED64A6;
+            --accent-yellow: #ECC94B;
+            --accent-purple: #9F7AEA;
+            --accent-cyan: #38B2AC;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body.light-mode {
+            --bg-primary: #F7FAFC;
+            --bg-secondary: #EDF2F7;
+            --bg-card: #FFFFFF;
+            --text-primary: #1A202C;
+            --text-secondary: #4A5568;
+        }
+
+        /* Canvas Background */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        /* Particles */
+        .particle {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            animation: particleFloat 1.5s ease-out forwards;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-150px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            z-index: 9999;
+            animation: confettiFall 3s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(66, 153, 225, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-mode nav {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            transition: transform 0.3s;
+            user-select: none;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+        }
+
+        .nav-links button:hover {
+            color: var(--accent-blue);
+            background: rgba(66, 153, 225, 0.1);
+        }
+
+        .nav-links button.active {
+            color: var(--accent-blue);
+            background: rgba(66, 153, 225, 0.15);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: rgba(66, 153, 225, 0.1);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .level-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-yellow), var(--accent-magenta));
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(236, 201, 75, 0.3);
+        }
+
+        /* Score Bar */
+        .score-bar {
+            position: fixed;
+            top: 68px;
+            left: 0;
+            width: 100%;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            z-index: 999;
+            border-bottom: 1px solid rgba(66, 153, 225, 0.1);
+        }
+
+        body.light-mode .score-bar {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .score-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+
+        .score-item:hover {
+            transform: scale(1.1);
+        }
+
+        .xp-bar {
+            position: relative;
+            width: 220px;
+            height: 24px;
+            background: var(--bg-card);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .xp-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-green));
+            transition: width 0.6s ease-out;
+            width: 0%;
+        }
+
+        .xp-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.7rem;
+            font-weight: 700;
+            z-index: 1;
+        }
+
+        /* Pages */
+        .page {
+            position: relative;
+            z-index: 1;
+            padding-top: 140px;
+            min-height: 100vh;
+            display: none;
+            opacity: 0;
+        }
+
+        .page.active {
+            display: block;
+            animation: pageEnter 0.6s ease-out forwards;
+        }
+
+        @keyframes pageEnter {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 2rem;
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green), var(--accent-magenta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientFlow 3s ease infinite;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            color: white;
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(66, 153, 225, 0.6);
+        }
+
+        .btn-secondary {
+            background: rgba(66, 153, 225, 0.1);
+            color: var(--accent-blue);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(66, 153, 225, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-box {
+            background: rgba(45, 55, 72, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(66, 153, 225, 0.3);
+            min-width: 150px;
+            transition: all 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(66, 153, 225, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+        }
+
+        /* Timeline */
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-green));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 45%;
+            position: relative;
+            border: 2px solid var(--accent-blue);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(66, 153, 225, 0.4);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(66, 153, 225, 0.5);
+            z-index: 1;
+        }
+
+        .timeline-content h3 {
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .philosophy-box {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 2px solid var(--accent-green);
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.3);
+        }
+
+        .philosophy-box h3 {
+            text-align: center;
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .philosophy-box p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Matrix Grid */
+        .matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .matrix-card-container {
+            position: relative;
+            height: 250px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .matrix-card-container.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .matrix-card-front, .matrix-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            background: var(--bg-card);
+            border: 2px solid;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .matrix-card-back {
+            transform: rotateY(180deg);
+        }
+
+        .number {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .letter {
+            font-size: 1.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .example {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .logic {
+            font-size: 1.1rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .memory-tip {
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            font-style: italic;
+        }
+
+        /* Trainer */
+        .trainer-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(66, 153, 225, 0.2);
+        }
+
+        .mode-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .mode-btn {
+            flex: 1;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-blue);
+            color: var(--text-primary);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            border-color: transparent;
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.4);
+        }
+
+        .trainer-input {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent-blue);
+            border-radius: 15px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .trainer-input:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(66, 153, 225, 0.5);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border: none;
+            color: white;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            box-shadow: 0 10px 30px rgba(72, 187, 120, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(72, 187, 120, 0.6);
+        }
+
+        .result {
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            display: none;
+            font-weight: 700;
+        }
+
+        .result.show {
+            display: block;
+            animation: resultShow 0.3s ease-out;
+        }
+
+        @keyframes resultShow {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .result.success {
+            border: 3px solid var(--accent-green);
+            color: var(--accent-green);
+            background: rgba(72, 187, 120, 0.1);
+        }
+
+        .result.error {
+            border: 3px solid #FC8181;
+            color: #FC8181;
+            background: rgba(252, 129, 129, 0.1);
+        }
+
+        /* Achievement Toast */
+        .achievement-toast {
+            position: fixed;
+            top: 160px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 3px solid var(--accent-green);
+            border-radius: 20px;
+            padding: 1.5rem;
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10000;
+            box-shadow: 0 20px 50px rgba(72, 187, 120, 0.6);
+            backdrop-filter: blur(20px);
+            max-width: 350px;
+        }
+
+        .achievement-toast.show {
+            display: flex;
+            animation: toastSlide 0.5s ease-out;
+        }
+
+        @keyframes toastSlide {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .achievement-toast-icon {
+            font-size: 3rem;
+        }
+
+        .achievement-toast-title {
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.25rem;
+        }
+
+        .achievement-toast-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mode Tabs */
+        .mode-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .mode-tab {
+            padding: 1rem 2rem;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-blue);
+            color: var(--text-primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        .mode-tab:hover {
+            transform: translateY(-3px);
+        }
+
+        .mode-tab.active {
+            background: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.5);
+        }
+
+        /* Quiz */
+        .timer-display {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .timer-circle {
+            display: inline-flex;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-blue) 0deg, var(--bg-card) 0deg);
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(66, 153, 225, 0.4);
+        }
+
+        .timer-circle::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--bg-secondary);
+        }
+
+        .timer-text {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-blue);
+            z-index: 1;
+        }
+
+        .quiz-question {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-question h3 {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .quiz-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 2rem !important;
+                margin-right: 0 !important;
+            }
+
+            .timeline-year {
+                left: 0;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .score-bar {
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .xp-bar {
+                width: 100%;
+            }
+
+            .trainer-container {
+                padding: 2rem;
+            }
+
+            .mode-selector {
+                flex-direction: column;
+            }
+
+            .matrix-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+
+            .achievement-toast {
+                right: 10px;
+                left: 10px;
+                max-width: calc(100% - 20px);
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent-blue);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="bgCanvas"></canvas>
+
+    <div class="achievement-toast" id="achievementToast">
+        <div class="achievement-toast-icon" id="toastIcon">🎯</div>
+        <div>
+            <div class="achievement-toast-title" id="toastTitle">Achievement Unlocked!</div>
+            <div class="achievement-toast-desc" id="toastDesc">Prima Conversione</div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo" id="logoBtn">✨ Eco System</div>
+            <ul class="nav-links" id="navLinks">
+                <li><button class="nav-btn active" data-page="home">Home</button></li>
+                <li><button class="nav-btn" data-page="history">Storia</button></li>
+                <li><button class="nav-btn" data-page="matrix">Matrice</button></li>
+                <li><button class="nav-btn" data-page="trainer">Trainer</button></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggleBtn">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Dark</span>
+                </button>
+                <div class="level-badge">
+                    ⭐ Lv <span id="levelDisplay">1</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="score-bar">
+        <div class="score-item">
+            🏆 <span id="scoreDisplay">0</span>
+        </div>
+        <div class="score-item">
+            🔥 <span id="streakDisplay">0</span> streak
+        </div>
+        <div class="xp-bar">
+            <div class="xp-fill" id="xpFill"></div>
+            <span class="xp-text"><span id="xpDisplay">0</span>/100 XP</span>
+        </div>
+    </div>
+
+    <div class="page active" id="homePage">
+        <section class="hero">
+            <h1 class="hero-title">
+                Oltre i Numeri.<br>
+                <span class="gradient-text">Ricorda Tutto.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Il sistema fonetico moderno che trasforma numeri in immagini mentali indelebili
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" id="startBtn">Inizia Ora →</button>
+                <button class="btn btn-secondary" id="exploreBtn">📚 Esplora la Matrice</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-box">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Suoni Fonetici</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1-2</div>
+                    <div class="stat-label">Settimane</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Possibilità</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="page" id="historyPage">
+        <section class="section">
+            <h2 class="section-title">📜 La Storia del Major System</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">1648</div>
+                    <div class="timeline-content">
+                        <h3>Le Origini: Stanislaus Mink von Wennsshein</h3>
+                        <p>Il monaco tedesco Stanislaus Mink von Wennsshein pubblica il primo sistema mnemonico numerico, gettando le fondamenta per quello che diventerà il Major System. Il suo approccio rivoluzionario associava suoni consonantici ai numeri, un'intuizione che avrebbe attraversato i secoli.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1730</div>
+                    <div class="timeline-content">
+                        <h3>Richard Grey: Il Perfezionamento</h3>
+                        <p>Il filosofo inglese Richard Grey perfeziona il sistema, creando una mappatura più precisa e sistematica. La sua opera "Memoria Technica" diventa un riferimento fondamentale per gli studiosi di mnemotecnica dell'epoca.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1808</div>
+                    <div class="timeline-content">
+                        <h3>Gregor von Feinaigle: La Diffusione</h3>
+                        <p>Il mnemonista tedesco Gregor von Feinaigle porta il sistema in tutta Europa, tenendo conferenze e dimostrazioni pubbliche. Il suo lavoro rende il sistema accessibile al grande pubblico e ne dimostra l'efficacia pratica.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">1844</div>
+                    <div class="timeline-content">
+                        <h3>Francis Fauvel-Gouraud: Il "Major System"</h3>
+                        <p>Il mnemonista francese Francis Fauvel-Gouraud conia il termine "Major System" e introduce miglioramenti significativi. La sua versione diventa lo standard internazionale e viene tradotta in numerose lingue.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-content">
+                        <h3>Eco System: L'Evoluzione Italiana</h3>
+                        <p>Nasce Eco System, il primo sistema mnemonico specificamente progettato per la lingua italiana. Mantiene i principi del Major System ma ottimizza le associazioni fonetiche per la fonetica italiana, rendendolo più naturale e intuitivo per i parlanti nativi.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="philosophy-box">
+                <h3>🧠 La Filosofia di Eco System</h3>
+                <p>
+                    Eco System eredita la saggezza di quasi 400 anni di mnemotecnica, ma la porta nel futuro. Mentre il Major System è stato progettato per l'inglese e altre lingue germaniche, Eco System abbraccia la musicalità e la struttura unica dell'italiano. 
+                    <br><br>
+                    Il nome "Eco" rappresenta l'idea che ogni numero produce un "eco" fonetico nella mente, un suono che risuona e si trasforma in immagine. Non è solo una tecnica di memoria, ma un vero e proprio ecosistema mentale dove suono, parola e immaginazione si alimentano a vicenda.
+                    <br><br>
+                    Come i grandi mnemonisti del passato, crediamo che la memoria non sia un dono innato, ma un'abilità che può essere coltivata. Eco System è il nostro contributo a questa tradizione secolare, adattata per la mente italiana moderna.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <div class="page" id="matrixPage">
+        <section class="section">
+            <h2 class="section-title">🧠 La Matrice Fonetica</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem; font-size: 1.1rem;">
+                Clicca su ogni carta per girarla e scoprire la logica mnemonica
+            </p>
+            <div class="matrix-grid" id="matrixGrid"></div>
+        </section>
+    </div>
+
+    <div class="page" id="trainerPage">
+        <section class="section">
+            <h2 class="section-title">⚡ Eco-Coder Trainer</h2>
+            
+            <div class="mode-tabs">
+                <button class="mode-tab active" id="freeTab">🎯 Modalità Libera</button>
+                <button class="mode-tab" id="quizTab">🏆 Quiz Timer</button>
+            </div>
+
+            <div id="freeMode">
+                <div class="trainer-container">
+                    <div class="mode-selector">
+                        <button class="mode-btn active" id="encodeBtn">
+                            Codifica (Numero → Parola)
+                        </button>
+                        <button class="mode-btn" id="decodeBtn">
+                            Decodifica (Parola → Numero)
+                        </button>
+                    </div>
+
+                    <input type="text" class="trainer-input" id="trainerInput" placeholder="Inserisci un numero (es. 314)">
+                    <button class="submit-btn" id="submitBtn">Converti →</button>
+                    <div class="result" id="trainerResult"></div>
+                </div>
+            </div>
+
+            <div id="quizMode" style="display: none;">
+                <div class="trainer-container">
+                    <div class="timer-display">
+                        <div class="timer-circle" id="timerCircle">
+                            <span class="timer-text" id="timerText">30</span>
+                        </div>
+                    </div>
+                    <div class="quiz-question">
+                        <h3>Converti questo numero:</h3>
+                        <div class="quiz-number" id="quizNumber">314</div>
+                    </div>
+                    <input type="text" class="trainer-input" id="quizInput" placeholder="Inserisci le consonanti (es. T-N-R)">
+                    <button class="submit-btn" id="quizSubmitBtn">Conferma Risposta</button>
+                    <div class="result" id="quizResult"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        'use strict';
+
+        // Matrix Data
+        const MATRIX = {
+            '0': { letter: 'Z', examples: 'Zia, Zoo, Zero', logic: 'Zero inizia con Z', tip: 'La Z sibila come lo zero', color: '#4299E1' },
+            '1': { letter: 'N', examples: 'uNo, Neo, Noè', logic: 'Uno contiene N', tip: 'N ha una gamba', color: '#48BB78' },
+            '2': { letter: 'D', examples: 'Due, Dea, Dado', logic: 'Due inizia con D', tip: 'D gira come il 2', color: '#ED64A6' },
+            '3': { letter: 'T', examples: 'Tè, Tre, Tao', logic: 'Tre inizia con T', tip: 'T ha tre linee', color: '#ECC94B' },
+            '4': { letter: 'R', examples: 'Re, Rio, Rai', logic: 'Quattro finisce con R', tip: 'R vibra', color: '#9F7AEA' },
+            '5': { letter: 'C/G', examples: 'Cielo, Gelo', logic: 'Suono dolce', tip: 'Dolce come il 5', color: '#FC8181' },
+            '6': { letter: 'S/SC', examples: 'Sei, Scii', logic: 'Suono sibilante', tip: 'S serpeggia', color: '#38B2AC' },
+            '7': { letter: 'K/Q', examples: 'Cane, Koala', logic: 'Suono duro', tip: 'K taglia', color: '#48BB78' },
+            '8': { letter: 'B/V', examples: 'Boa, Via', logic: 'B assomiglia a 8', tip: 'B è due cerchi', color: '#ED64A6' },
+            '9': { letter: 'P/F', examples: 'Palla, Ufo', logic: 'P rovesciata = 9', tip: 'P capovolto', color: '#ECC94B' },
+        };
+        
+        const REVERSE_MATRIX = {
+            'Z': '0', 'N': '1', 'D': '2', 'T': '3', 'R': '4',
+            'C': '5', 'G': '5', 'S': '6', 'K': '7', 'Q': '7',
+            'B': '8', 'V': '8', 'P': '9', 'F': '9'
+        };
+
+        // Game State
+        const gameState = {
+            score: 0,
+            streak: 0,
+            level: 1,
+            xp: 0,
+            trainerMode: 'encode',
+            stats: {
+                totalAttempts: 0,
+                correctAnswers: 0,
+                bestStreak: 0
+            },
+            achievements: [
+                { id: 1, name: 'Prima Conversione', desc: 'Converti il tuo primo numero', unlocked: false, icon: '🎯' },
+                { id: 2, name: 'Streak Master', desc: '5 risposte corrette di fila', unlocked: false, icon: '🔥' },
+                { id: 3, name: 'Centurione', desc: 'Raggiungi 100 punti', unlocked: false, icon: '💯' },
+                { id: 4, name: 'Matrix Master', desc: 'Converti 20 numeri', unlocked: false, icon: '🧠' }
+            ],
+            quizTimer: null,
+            quizTimeLeft: 30,
+            currentQuiz: null
+        };
+
+        // Background Canvas
+        function initCanvas() {
+            const canvas = document.getElementById('bgCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            const points = [];
+            const pointCount = 40;
+            
+            for (let i = 0; i < pointCount; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.5,
+                    vy: (Math.random() - 0.5) * 0.5,
+                    radius: Math.random() * 2 + 1
+                });
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                points.forEach(point => {
+                    point.x += point.vx;
+                    point.y += point.vy;
+
+                    if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
+                    if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(66, 153, 225, 0.3)';
+                    ctx.fill();
+
+                    points.forEach(otherPoint => {
+                        const dx = point.x - otherPoint.x;
+                        const dy = point.y - otherPoint.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 100) {
+                            ctx.beginPath();
+                            ctx.moveTo(point.x, point.y);
+                            ctx.lineTo(otherPoint.x, otherPoint.y);
+                            ctx.strokeStyle = `rgba(66, 153, 225, ${0.2 * (1 - distance / 100)})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        // Particle Effects
+        function createParticles(x, y, color) {
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = (x + (Math.random() - 0.5) * 80) + 'px';
+                    particle.style.top = (y + (Math.random() - 0.5) * 80) + 'px';
+                    particle.style.backgroundColor = color || '#4299E1';
+                    document.body.appendChild(particle);
+                    setTimeout(() => particle.remove(), 1500);
+                }, i * 30);
+            }
+        }
+
+        function createConfetti() {
+            const colors = ['#4299E1', '#48BB78', '#ED64A6', '#ECC94B', '#9F7AEA', '#38B2AC'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * window.innerWidth + 'px';
+                    confetti.style.top = '-20px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            document.getElementById('themeIcon').textContent = isLight ? '☀️' : '🌙';
+            document.getElementById('themeText').textContent = isLight ? 'Light' : 'Dark';
+        }
+
+        // Page Navigation
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageName + 'Page').classList.add('active');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-page') === pageName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            if (pageName === 'matrix') {
+                renderMatrix();
+            }
+        }
+
+        // Matrix Render
+        function renderMatrix() {
+            const grid = document.getElementById('matrixGrid');
+            grid.innerHTML = '';
+            
+            Object.entries(MATRIX).forEach(([number, data]) => {
+                const container = document.createElement('div');
+                container.className = 'matrix-card-container';
+                
+                const front = document.createElement('div');
+                front.className = 'matrix-card-front';
+                front.style.borderColor = data.color;
+                front.innerHTML = `
+                    <div class="number" style="color: ${data.color}">${number}</div>
+                    <div class="letter">${data.letter}</div>
+                    <div class="example">${data.examples}</div>
+                `;
+                
+                const back = document.createElement('div');
+                back.className = 'matrix-card-back';
+                back.style.borderColor = data.color;
+                back.innerHTML = `
+                    <div class="logic">${data.logic}</div>
+                    <div class="memory-tip">💡 ${data.tip}</div>
+                `;
+                
+                container.appendChild(front);
+                container.appendChild(back);
+                
+                container.addEventListener('click', () => {
+                    container.classList.toggle('flipped');
+                    createParticles(window.innerWidth / 2, window.innerHeight / 2, data.color);
+                });
+                
+                grid.appendChild(container);
+            });
+        }
+
+        // Update UI
+        function updateUI() {
+            document.getElementById('scoreDisplay').textContent = gameState.score;
+            document.getElementById('streakDisplay').textContent = gameState.streak;
+            document.getElementById('levelDisplay').textContent = gameState.level;
+            document.getElementById('xpDisplay').textContent = gameState.xp % 100;
+            document.getElementById('xpFill').style.width = (gameState.xp % 100) + '%';
+        }
+
+        // Add XP
+        function addXP(amount) {
+            const oldLevel = gameState.level;
+            gameState.xp += amount;
+            const newLevel = Math.floor(gameState.xp / 100) + 1;
+            
+            if (newLevel > oldLevel) {
+                gameState.level = newLevel;
+                createConfetti();
+                showAchievementToast({ 
+                    name: 'Level Up! 🎉', 
+                    desc: `Livello ${newLevel} raggiunto!`, 
+                    icon: '⭐' 
+                });
+            }
+            
+            updateUI();
+        }
+
+        // Unlock Achievement
+        function unlockAchievement(id) {
+            const achievement = gameState.achievements.find(a => a.id === id);
+            if (achievement && !achievement.unlocked) {
+                achievement.unlocked = true;
+                showAchievementToast(achievement);
+                createParticles(window.innerWidth - 200, 200, '#48BB78');
+            }
+        }
+
+        // Achievement Toast
+        function showAchievementToast(achievement) {
+            const toast = document.getElementById('achievementToast');
+            document.getElementById('toastIcon').textContent = achievement.icon;
+            document.getElementById('toastTitle').textContent = achievement.name;
+            document.getElementById('toastDesc').textContent = achievement.desc;
+            
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Encode/Decode
+        function encode(number) {
+            return number.split('').map(digit => MATRIX[digit]?.letter || '?').join('-');
+        }
+
+        function decode(word) {
+            const consonants = word.toUpperCase().split('').filter(c => REVERSE_MATRIX[c]);
+            return consonants.map(c => REVERSE_MATRIX[c]).join('');
+        }
+
+        // Trainer Mode
+        function setMode(mode) {
+            gameState.trainerMode = mode;
+            const encodeBtn = document.getElementById('encodeBtn');
+            const decodeBtn = document.getElementById('decodeBtn');
+            const input = document.getElementById('trainerInput');
+            
+            if (mode === 'encode') {
+                encodeBtn.classList.add('active');
+                decodeBtn.classList.remove('active');
+                input.placeholder = 'Inserisci un numero (es. 314)';
+            } else {
+                decodeBtn.classList.add('active');
+                encodeBtn.classList.remove('active');
+                input.placeholder = 'Inserisci una parola (es. Tino)';
+            }
+            
+            document.getElementById('trainerResult').classList.remove('show');
+        }
+
+        // Trainer Submit
+        function handleTrainerSubmit() {
+            const input = document.getElementById('trainerInput').value.trim();
+            const resultDiv = document.getElementById('trainerResult');
+            
+            if (!input) {
+                resultDiv.textContent = '⚠️ Inserisci un valore!';
+                resultDiv.className = 'result error show';
+                return;
+            }
+            
+            gameState.stats.totalAttempts++;
+            
+            if (gameState.trainerMode === 'encode') {
+                if (!/^\d+$/.test(input)) {
+                    resultDiv.textContent = '❌ Inserisci solo numeri!';
+                    resultDiv.className = 'result error show';
+                    return;
+                }
+                const encoded = encode(input);
+                resultDiv.textContent = `✨ ${input} → ${encoded}`;
+                resultDiv.className = 'result success show';
+                
+                gameState.score += 10;
+                gameState.streak++;
+                gameState.stats.correctAnswers++;
+                addXP(15);
+                
+                createParticles(window.innerWidth / 2, 400, '#48BB78');
+                
+                if (gameState.stats.correctAnswers === 1) unlockAchievement(1);
+                if (gameState.streak === 5) unlockAchievement(2);
+                if (gameState.score >= 100) unlockAchievement(3);
+                if (gameState.stats.correctAnswers >= 20) unlockAchievement(4);
+                
+                gameState.stats.bestStreak = Math.max(gameState.stats.bestStreak, gameState.streak);
+                
+            } else {
+                const decoded = decode(input);
+                if (!decoded) {
+                    resultDiv.textContent = '❌ Nessuna consonante valida!';
+                    resultDiv.className = 'result error show';
+                    return;
+                }
+                resultDiv.textContent = `✨ ${input} → ${decoded}`;
+                resultDiv.className = 'result success show';
+                
+                gameState.score += 10;
+                gameState.streak++;
+                gameState.stats.correctAnswers++;
+                addXP(15);
+                
+                createParticles(window.innerWidth / 2, 400, '#48BB78');
+                
+                gameState.stats.bestStreak = Math.max(gameState.stats.bestStreak, gameState.streak);
+            }
+            
+            updateUI();
+        }
+
+        // Quiz Functions
+        function generateQuizQuestion() {
+            const randomNumber = Math.floor(Math.random() * 1000).toString();
+            gameState.currentQuiz = {
+                number: randomNumber,
+                answer: encode(randomNumber)
+            };
+            document.getElementById('quizNumber').textContent = randomNumber;
+            document.getElementById('quizInput').value = '';
+            document.getElementById('quizResult').classList.remove('show');
+        }
+
+        function startQuiz() {
+            generateQuizQuestion();
+            gameState.quizTimeLeft = 30;
+            updateTimerDisplay();
+            
+            gameState.quizTimer = setInterval(() => {
+                gameState.quizTimeLeft--;
+                updateTimerDisplay();
+                
+                if (gameState.quizTimeLeft <= 0) {
+                    handleQuizTimeout();
+                }
+            }, 1000);
+        }
+
+        function stopQuizTimer() {
+            if (gameState.quizTimer) {
+                clearInterval(gameState.quizTimer);
+                gameState.quizTimer = null;
+            }
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timerText').textContent = gameState.quizTimeLeft;
+            const percentage = (gameState.quizTimeLeft / 30) * 360;
+            document.getElementById('timerCircle').style.background = 
+                `conic-gradient(var(--accent-blue) ${percentage}deg, var(--bg-card) ${percentage}deg)`;
+        }
+
+        function handleQuizSubmit() {
+            if (!gameState.currentQuiz) return;
+            
+            stopQuizTimer();
+            
+            const input = document.getElementById('quizInput').value.trim();
+            const resultDiv = document.getElementById('quizResult');
+            const correctAnswer = gameState.currentQuiz.answer.toUpperCase().replace(/-/g, '');
+            const userAnswer = input.toUpperCase().replace(/\s/g, '').replace(/-/g, '');
+            
+            gameState.stats.totalAttempts++;
+            
+            if (userAnswer === correctAnswer) {
+                resultDiv.textContent = '✅ Corretto! 🎉';
+                resultDiv.className = 'result success show';
+                
+                gameState.score += 20;
+                gameState.streak++;
+                gameState.stats.correctAnswers++;
+                addXP(25);
+                
+                createParticles(window.innerWidth / 2, 400, '#48BB78');
+                createConfetti();
+                
+                gameState.stats.bestStreak = Math.max(gameState.stats.bestStreak, gameState.streak);
+            } else {
+                resultDiv.textContent = `❌ Sbagliato! Risposta: ${gameState.currentQuiz.answer}`;
+                resultDiv.className = 'result error show';
+                gameState.streak = 0;
+            }
+            
+            updateUI();
+            
+            setTimeout(() => {
+                startQuiz();
+            }, 2500);
+        }
+
+        function handleQuizTimeout() {
+            stopQuizTimer();
+            
+            const resultDiv = document.getElementById('quizResult');
+            resultDiv.textContent = `⏰ Tempo scaduto! Risposta: ${gameState.currentQuiz.answer}`;
+            resultDiv.className = 'result error show';
+            
+            gameState.streak = 0;
+            updateUI();
+            
+            setTimeout(() => {
+                startQuiz();
+            }, 2500);
+        }
+
+        // Tab Switch
+        function setTrainerTab(tab) {
+            document.getElementById('freeTab').classList.remove('active');
+            document.getElementById('quizTab').classList.remove('active');
+            
+            if (tab === 'free') {
+                document.getElementById('freeTab').classList.add('active');
+                document.getElementById('freeMode').style.display = 'block';
+                document.getElementById('quizMode').style.display = 'none';
+                stopQuizTimer();
+            } else {
+                document.getElementById('quizTab').classList.add('active');
+                document.getElementById('freeMode').style.display = 'none';
+                document.getElementById('quizMode').style.display = 'block';
+                startQuiz();
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize canvas
+            initCanvas();
+            
+            // Initialize UI
+            updateUI();
+            renderMatrix();
+            
+            // Event Listeners - Navigation
+            document.getElementById('logoBtn').addEventListener('click', () => showPage('home'));
+            document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+            document.getElementById('startBtn').addEventListener('click', () => showPage('trainer'));
+            document.getElementById('exploreBtn').addEventListener('click', () => showPage('matrix'));
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const page = e.target.getAttribute('data-page');
+                    showPage(page);
+                });
+            });
+
+            // Event Listeners - Trainer
+            document.getElementById('encodeBtn').addEventListener('click', () => setMode('encode'));
+            document.getElementById('decodeBtn').addEventListener('click', () => setMode('decode'));
+            document.getElementById('submitBtn').addEventListener('click', handleTrainerSubmit);
+            document.getElementById('trainerInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleTrainerSubmit();
+            });
+
+            // Event Listeners - Quiz
+            document.getElementById('freeTab').addEventListener('click', () => setTrainerTab('free'));
+            document.getElementById('quizTab').addEventListener('click', () => setTrainerTab('quiz'));
+            document.getElementById('quizSubmitBtn').addEventListener('click', handleQuizSubmit);
+            document.getElementById('quizInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') handleQuizSubmit();
+            });
+
+            // Welcome message
+            setTimeout(() => {
+                showAchievementToast({ 
+                    name: 'Benvenuto! 👋', 
+                    desc: 'Inizia il tuo viaggio nella mnemotecnica', 
+                    icon: '✨' 
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
