@@ -277,7 +277,7 @@ Per creare immagini mnemoniche efficaci, segui questi principi scientificamente 
 
 3. **Date storiche**:
    - Associa eventi a scene mnemoniche
-   - Esempio: 1492 (scoperta dell'America) → N(1)-P/F(4)-D(9)-N(2)
+   - Esempio: 1492 (scoperta dell'America) → N(1)-R(4)-P(9)-D(2)
 
 4. **Dati numerici di studio**:
    - Trasforma statistiche, formule e dati in immagini
