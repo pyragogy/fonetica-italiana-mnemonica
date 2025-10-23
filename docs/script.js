@@ -611,6 +611,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
     document.getElementById('startBtn').addEventListener('click', () => showPage('trainer'));
     document.getElementById('exploreBtn').addEventListener('click', () => showPage('matrix'));
+    document.getElementById('joinBtn').addEventListener('click', () => showPage('insights'));
     
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {

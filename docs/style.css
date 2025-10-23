@@ -380,6 +380,40 @@
             margin-right: auto;
         }
 
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(66, 153, 225, 0.2);
+            border-bottom: 1px solid rgba(66, 153, 225, 0.2);
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.8rem;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+
         .hero-buttons {
             display: flex;
             gap: 1.5rem;
@@ -1045,6 +1079,59 @@ footer {
     color: var(--text-secondary);
     line-height: 1.8;
 }
+
+.community-container {
+    margin-top: 4rem;
+}
+
+.community-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    font-family: 'Manrope', sans-serif;
+    color: var(--text-primary);
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.community-card {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(66, 153, 225, 0.2);
+    text-align: center;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.community-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(66, 153, 225, 0.3);
+    border-color: var(--accent-blue);
+}
+
+.community-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+}
+
+.community-card h4 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.community-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
 
 .links-container {
     display: flex;
