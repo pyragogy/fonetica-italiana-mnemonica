@@ -612,6 +612,37 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('startBtn').addEventListener('click', () => showPage('trainer'));
     document.getElementById('exploreBtn').addEventListener('click', () => showPage('matrix'));
     document.getElementById('joinBtn').addEventListener('click', () => showPage('insights'));
+
+    // Event Listeners - AI Widget
+    const aiFab = document.getElementById('aiFab');
+    const aiWidgetContainer = document.getElementById('aiWidgetContainer');
+    const aiWidgetClose = document.getElementById('aiWidgetClose');
+    const aiWidgetBody = document.getElementById('aiWidgetBody');
+
+    aiFab.addEventListener('click', () => {
+        aiWidgetContainer.classList.toggle('show');
+        aiFab.classList.toggle('hide');
+
+        if (aiWidgetContainer.classList.contains('show')) {
+            aiWidgetBody.innerHTML = `
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
+                </div>
+            `;
+            setTimeout(() => {
+                aiWidgetBody.innerHTML = `
+                    <div class="ai-message">
+                        Ciao! Sono l'assistente AI di Eco System. Attualmente sono in fase di sviluppo, ma presto potrò aiutarti a creare immagini mnemoniche personalizzate. A presto!
+                    </div>
+                `;
+            }, 2000);
+        }
+    });
+
+    aiWidgetClose.addEventListener('click', () => {
+        aiWidgetContainer.classList.remove('show');
+        aiFab.classList.remove('hide');
+    });
     
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
