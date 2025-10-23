@@ -618,18 +618,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const aiWidgetContainer = document.getElementById('aiWidgetContainer');
     const aiWidgetClose = document.getElementById('aiWidgetClose');
     const aiWidgetBody = document.getElementById('aiWidgetBody');
+    let aiWidgetTimeout;
 
-    aiFab.addEventListener('click', () => {
-        aiWidgetContainer.classList.toggle('show');
-        aiFab.classList.toggle('hide');
+    function openAiWidget() {
+        aiWidgetContainer.classList.add('show');
+        aiFab.classList.add('hide');
 
-        if (aiWidgetContainer.classList.contains('show')) {
+        // Mostra l'indicatore di "sta scrivendo" e poi il messaggio
+        if (!aiWidgetBody.querySelector('.ai-message')) {
             aiWidgetBody.innerHTML = `
                 <div class="typing-indicator">
                     <span></span><span></span><span></span>
                 </div>
             `;
-            setTimeout(() => {
+            aiWidgetTimeout = setTimeout(() => {
                 aiWidgetBody.innerHTML = `
                     <div class="ai-message">
                         Ciao! Sono l'assistente AI di Eco System. Attualmente sono in fase di sviluppo, ma presto potrò aiutarti a creare immagini mnemoniche personalizzate. A presto!
@@ -637,12 +639,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             }, 2000);
         }
-    });
+    }
 
-    aiWidgetClose.addEventListener('click', () => {
+    function closeAiWidget() {
+        clearTimeout(aiWidgetTimeout); // Annulla il timeout se si chiude prima
         aiWidgetContainer.classList.remove('show');
         aiFab.classList.remove('hide');
-    });
+    }
+
+    aiFab.addEventListener('click', openAiWidget);
+    aiWidgetClose.addEventListener('click', closeAiWidget);
     
     document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
