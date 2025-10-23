@@ -913,6 +913,29 @@
             background: var(--accent-blue);
             color: white;
         }
+        /* Docs */
+        .md-content {
+            color: var(--text-secondary);
+        }
+        .md-content h1, .md-content h2, .md-content h3, .md-content h4 {
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+        }
+        .md-content p, .md-content li {
+            line-height: 1.8;
+        }
+        .md-content pre {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            overflow: auto;
+            border: 1px solid rgba(66, 153, 225, 0.2);
+        }
+        .md-content code {
+            background: var(--bg-secondary);
+            padding: 0.2rem 0.4rem;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body>
@@ -934,6 +957,7 @@
                 <li><button class="nav-btn" data-page="history">Storia</button></li>
                 <li><button class="nav-btn" data-page="matrix">Matrice</button></li>
                 <li><button class="nav-btn" data-page="trainer">Trainer</button></li>
+                <li><button class="nav-btn" data-page="docs">Docs</button></li>
             </ul>
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggleBtn">
@@ -1103,6 +1127,20 @@
         </section>
     </div>
 
+    <div class="page" id="docsPage">
+        <section class="section">
+            <h2 class="section-title">📖 Documentazione</h2>
+            <div class="mode-tabs" id="docsLangToggle">
+                <button class="mode-tab active" id="itDocsBtn">Italiano</button>
+                <button class="mode-tab" id="enDocsBtn">English</button>
+            </div>
+            <div class="trainer-container">
+                <div id="docsContent" class="md-content"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         'use strict';
 
@@ -1266,6 +1304,8 @@
             
             if (pageName === 'matrix') {
                 renderMatrix();
+            } else if (pageName === 'docs') {
+                loadDocs(docsLang);
             }
         }
 
@@ -1305,6 +1345,29 @@
                 
                 grid.appendChild(container);
             });
+        }
+
+        // Docs rendering
+        let docsLang = 'it';
+        async function loadDocs(lang) {
+            try {
+                const file = lang === 'it' ? 'README.md' : 'README_EN.md';
+                const response = await fetch(file, { cache: 'no-store' });
+                const md = await response.text();
+                const html = (window.marked && window.marked.parse) ? window.marked.parse(md) : md;
+                document.getElementById('docsContent').innerHTML = html;
+            } catch (err) {
+                document.getElementById('docsContent').innerHTML = '<p>Impossibile caricare la documentazione.</p>';
+            }
+        }
+
+        function setDocsLang(lang) {
+            docsLang = lang;
+            document.getElementById('itDocsBtn').classList.toggle('active', lang === 'it');
+            document.getElementById('enDocsBtn').classList.toggle('active', lang === 'en');
+            if (document.getElementById('docsPage').classList.contains('active')) {
+                loadDocs(lang);
+            }
         }
 
         // Update UI
@@ -1597,6 +1660,10 @@
             document.getElementById('quizInput').addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') handleQuizSubmit();
             });
+
+            // Event Listeners - Docs
+            document.getElementById('itDocsBtn').addEventListener('click', () => setDocsLang('it'));
+            document.getElementById('enDocsBtn').addEventListener('click', () => setDocsLang('en'));
 
             // Welcome message
             setTimeout(() => {
