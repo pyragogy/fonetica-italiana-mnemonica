@@ -1,0 +1,29 @@
+# Progetto Gemini: Roadmap
+
+## Fase 1: Sviluppo del Core (Completata)
+
+- [x] **Conversione Fonetica:** Sviluppo dell'algoritmo di conversione da numero a stringa di consonanti.
+- [x] **Trainer Iniziale:** Creazione di una modalità di allenamento per la codifica (numero -> parola) e decodifica (parola -> numero).
+- [x] **Gamification di Base:** Implementazione di un sistema di punteggio e streak.
+- [x] **Interfaccia Utente:** Sviluppo di un'interfaccia web semplice e funzionale.
+
+## Fase 2: Arricchimento Funzionale (Completata)
+
+- [x] **Persistenza dei Dati Utente:** Utilizza localStorage per salvare e caricare lo stato del gioco (gameState). L'utente non perderà più punteggio, livello e achievement aggiornando la pagina.
+- [x] **Miglioramento del Trainer:**
+    - [x] **Modalità Libera:** Nella decodifica, evidenzia le consonanti mappate nella parola inserita per dare un feedback visivo immediato.
+    - [x] **Modalità Quiz:** Aggiungi un pulsante "Salta" per passare a una nuova domanda senza penalità di streak.
+- [x] **Espansione della Gamification:**
+    - [x] **Nuovi Achievement:** Aggiunti achievement come "Quiz Master" e "Speed Coder".
+    - [x] **Leaderboard:** Implementata una classifica (leaderboard) salvata in localStorage per tenere traccia dei punteggi più alti.
+
+## Fase 3: Sviluppo di Contenuti e Community (In Corso)
+
+- [ ] **Allineamento con la Tesi:**
+    - [ ] Integrare nel sito web sezioni più dettagliate basate sulla tesi: "Principi Cognitivi", "Applicazioni Pratiche", "Analisi Comparativa".
+    - [ ] Aggiungere link diretti al DOI e al repository GitHub.
+- [ ] **Sviluppo di EcoAgent:**
+    - [ ] Prototipare l'agente AI per suggerire parole italiane valide e ad alta "immaginabilità".
+- [ ] **Costruzione della Community:**
+    - [ ] Usare le "Discussions" di GitHub per creare un forum.
+    - [ ] Promuovere il progetto su canali pertinenti.
