@@ -67,18 +67,18 @@ Studi mostrano che l'uso di tecniche mnemoniche strutturate come Eco System port
 
 La matrice rappresenta il cuore del sistema. Ogni numero è associato a un suono consonantico specifico, con una giustificazione chiara e un esempio di parola italiana:
 
-| Cifra | Categoria Fonética | Suoni/Lettere | Esempi Italiani | Memo Tecnico |
+| Cifra | Categoria Fonetica | Suoni/Lettere | Esempi Italiani | Memo Tecnico |
 |:-----:|:-------------------|:--------------|:----------------|:-------------|
-| **0** | Sibilante | **Z** | Zia, Zoo, Zero | "Zero" inizia con Z; suono sibilante |
-| **1** | Nasale dentale | **N** | uNo, Neo, Noè | "Uno" contiene N; suono nasale |
-| **2** | Dentale occlusiva | **D** | Due, Dea, Dado | "Due" inizia con D; colpo dei denti |
-| **3** | Occlusiva alveolare | **T** | Tè, Tre, Tao | "Tre" comincia con T; preciso |
-| **4** | Vibrante | **R** | Re, Rio, Rai | "Quattro" termina in R; suono vibrante |
-| **5** | Dolce | **C (dolce), G (dolce)** | cielo, Gelo, Cinque | Suono dolce e fluido |
-| **6** | Sibilante dolce | **S, SC (dolce)** | Sei, Scii, Scie | Suono che serpeggia |
-| **7** | Dura | **K, C (dura), Q** | Cane, Koala, Quattro | Suono di forza e decisione |
-| **8** | Labiodentale | **B, V** | Boa, Via, Vento | "B" assomiglia a 8 |
-| **9** | Labiale | **P, F** | Palla, Ufo, Fiore | "P" rovesciata ricorda 9 |
+| **0** | Sibilante | **Z** | Zia, Zoo, Zuppa | "Zero" inizia con Z; suono sibilante |
+| **1** | Nasale dentale | **N** | Noè, Neo, Nube | "Uno" contiene N; suono nasale |
+| **2** | Occlusiva dentale | **D** | Due, Dama, Duna | "Due" inizia con D; colpo dei denti |
+| **3** | Occlusiva alveolare | **T** | Tre, Tè, Tela | "Tre" comincia con T; preciso |
+| **4** | Vibrante | **R** | Re, Ramo, Rullo | "Quattro" termina in R; suono vibrante |
+| **5** | Palatale (dolce) | **C (dolce), G (dolce)** | Cielo, Gelo, Gioiello | Suono dolce e fluido |
+| **6** | Sibilante dolce | **S, SC (dolce)** | Sole, Sala, Sciarpa | Suono che serpeggia |
+| **7** | Velare (dura) | **K, C (dura), Q** | Cane, Culla, Colle | Suono di forza e decisione |
+| **8** | Labiodentale | **B, V** | Bolla, Via, Bue | "B" assomiglia a 8 |
+| **9** | Labiale | **P, F** | Palla, Fumo, Pelo | "P" rovesciata ricorda 9 |
 
 
 ### Regole di Memorizzazione della Matrice

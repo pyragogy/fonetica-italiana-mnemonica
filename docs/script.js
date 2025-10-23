@@ -2,16 +2,16 @@
 
 // Matrix Data
 const MATRIX = {
-    '0': { letter: 'Z', examples: 'Zia, Zoo, Zero', logic: 'Zero inizia con Z', tip: 'La Z sibila come lo zero', color: '#4299E1' },
-    '1': { letter: 'N', examples: 'uNo, Neo, Noè', logic: 'Uno contiene N', tip: 'N ha una gamba', color: '#48BB78' },
-    '2': { letter: 'D', examples: 'Due, Dea, Dado', logic: 'Due inizia con D', tip: 'D gira come il 2', color: '#ED64A6' },
-    '3': { letter: 'T', examples: 'Tè, Tre, Tao', logic: 'Tre inizia con T', tip: 'T ha tre linee', color: '#ECC94B' },
-    '4': { letter: 'R', examples: 'Re, Rio, Rai', logic: 'Quattro finisce con R', tip: 'R vibra', color: '#9F7AEA' },
-    '5': { letter: 'C/G', examples: 'Cielo, Gelo', logic: 'Suono dolce', tip: 'Dolce come il 5', color: '#FC8181' },
-    '6': { letter: 'S/SC', examples: 'Sei, Scii', logic: 'Suono sibilante', tip: 'S serpeggia', color: '#38B2AC' },
-    '7': { letter: 'K/Q', examples: 'Cane, Koala', logic: 'Suono duro', tip: 'K taglia', color: '#48BB78' },
-    '8': { letter: 'B/V', examples: 'Boa, Via', logic: 'B assomiglia a 8', tip: 'B è due cerchi', color: '#ED64A6' },
-    '9': { letter: 'P/F', examples: 'Palla, Ufo', logic: 'P rovesciata = 9', tip: 'P capovolto', color: '#ECC94B' },
+    '0': { letter: 'Z', examples: 'Zia, Zoo, Zuppa', logic: 'Sibilante', tip: 'Zero inizia con Z', color: '#4299E1' },
+    '1': { letter: 'N', examples: 'Noè, Neo, Nube', logic: 'Nasale dentale', tip: 'Uno contiene N', color: '#48BB78' },
+    '2': { letter: 'D', examples: 'Due, Dama, Duna', logic: 'Occlusiva dentale', tip: 'Due inizia con D', color: '#ED64A6' },
+    '3': { letter: 'T', examples: 'Tre, Tè, Tela', logic: 'Occlusiva alveolare', tip: 'Tre inizia con T', color: '#ECC94B' },
+    '4': { letter: 'R', examples: 'Re, Ramo, Rullo', logic: 'Vibrante', tip: 'Quattro finisce con R', color: '#9F7AEA' },
+    '5': { letter: 'C/G', examples: 'Cielo, Gelo, Gioiello', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '6': { letter: 'S/SC', examples: 'Sole, Sala, Sciarpa', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
+    '7': { letter: 'K/Q', examples: 'Cane, Culla, Colle', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
+    '8': { letter: 'B/V', examples: 'Bolla, Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
+    '9': { letter: 'P/F', examples: 'Palla, Fumo, Pelo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
 };
 
 const REVERSE_MATRIX = {

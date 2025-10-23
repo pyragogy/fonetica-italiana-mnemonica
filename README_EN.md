@@ -68,16 +68,16 @@ The matrix is the heart of the system. Each number is associated with a specific
 
 | Digit | Phonetic Category | Sounds/Letters | Italian Examples | Mnemonic Aid |
 |:-----:|:------------------|:---------------|:-----------------|:---------------|
-| **0** | Sibilant | **Z** | Zia, Zoo, Zero | "Zero" starts with Z; hissing sound |
-| **1** | Dental Nasal | **N** | uNo, Neo, Noè | "Uno" contains N; nasal sound |
-| **2** | Voiced Dental Stop | **D** | Due, Dea, Dado | "Due" starts with D; tap of the teeth |
-| **3** | Alveolar Stop | **T** | Tè, Tre, Tao | "Tre" starts with T; precise |
-| **4** | Vibrant | **R** | Re, Rio, Rai | "Quattro" ends in R; vibrating sound |
-| **5** | Soft | **C (soft), G (soft)** | cielo, Gelo, Cinque | Soft and fluid sound |
-| **6** | Soft Sibilant | **S, SC (soft)** | Sei, Scii, Scie | A sound that snakes |
-| **7** | Hard | **K, C (hard), Q** | Cane, Koala, Quattro | Sound of strength and decision |
-| **8** | Labiodental | **B, V** | Boa, Via, Vento | "B" looks like 8 |
-| **9** | Labial | **P, F** | Palla, Ufo, Fiore | An inverted "P" resembles 9 |
+| **0** | Sibilant | **Z** | Zia, Zoo, Zuppa | "Zero" starts with Z; hissing sound |
+| **1** | Dental Nasal | **N** | Noè, Neo, Nube | "Uno" contains N; nasal sound |
+| **2** | Voiced Dental Stop | **D** | Due, Dama, Duna | "Due" starts with D; tap of the teeth |
+| **3** | Alveolar Stop | **T** | Tre, Tè, Tela | "Tre" starts with T; precise |
+| **4** | Vibrant | **R** | Re, Ramo, Rullo | "Quattro" ends in R; vibrating sound |
+| **5** | Palatal (soft) | **C (soft), G (soft)** | Cielo, Gelo, Gioiello | Soft and fluid sound |
+| **6** | Soft Sibilant | **S, SC (soft)** | Sole, Sala, Sciarpa | A sound that snakes |
+| **7** | Velar (hard) | **K, C (hard), Q** | Cane, Culla, Colle | Sound of strength and decision |
+| **8** | Labiodental | **B, V** | Bolla, Via, Bue | "B" looks like 8 |
+| **9** | Labial | **P, F** | Palla, Fumo, Pelo | An inverted "P" resembles 9 |
 
 ### Rules for Memorizing the Matrix
 
