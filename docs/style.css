@@ -5,7 +5,7 @@
         }
 
         :root {
-            --bg-primary: #0a0a0f;
+            --bg-primary: #0a0f0f;
             --bg-secondary: #1A202C;
             --bg-card: #2D3748;
             --text-primary: #F7FAFC;
@@ -1024,6 +1024,10 @@ footer {
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
+.footer-logo-link {
+    display: inline-block;
+    line-height: 0;
+}
 
 .footer-logo-img {
     height: 35px;
@@ -1047,11 +1051,42 @@ footer {
     color: var(--accent-blue);
 }
 
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    color: var(--text-secondary);
+    transition: all 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--accent-blue);
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
     border-top: 1px solid rgba(66, 153, 225, 0.1);
     font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
 }
 
 /* Insights Page */
@@ -1158,10 +1193,10 @@ footer {
 .settings-container {
     max-width: 800px;
     margin: 4rem auto 0;
-    padding: 2rem;
-    background: var(--bg-card);
+    padding: 1.5rem 2rem;
+    background: transparent;
     border-radius: 20px;
-    border: 1px solid rgba(252, 129, 129, 0.2);
+    border: 1px dashed var(--text-secondary);
 }
 
 .settings-title {
