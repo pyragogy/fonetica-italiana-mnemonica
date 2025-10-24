@@ -520,36 +520,61 @@ function updateTimerDisplay() {
             
             const input = document.getElementById('quizInput').value.trim();
             const resultDiv = document.getElementById('quizResult');
-            const correctAnswer = gameState.currentQuiz.answer.toUpperCase().replace(/-/g, '');
-            const userAnswer = input.toUpperCase().replace(/\s/g, '').replace(/-/g, '');
+            const quizNumber = gameState.currentQuiz.number;
+            const userAnswer = input.toUpperCase();
+            
+            const validation = validateQuizAnswer(quizNumber, userAnswer);
             
             gameState.stats.totalAttempts++;
+            let nextQuestionDelay = 1500; // Delay predefinito per risposte corrette (1.5s)
             
-            if (userAnswer === correctAnswer) {
-                resultDiv.textContent = '✅ Corretto! 🎉';
+            if (validation.isCorrect) {
+                if (validation.isPerfect) {
+                    const perfectMessages = [
+                        'Wow, conoscenza perfetta della matrice!',
+                        'Impressionante! Conosci anche le alternative!',
+                        'Sei un vero Eco-Coder!',
+                        'Ma sei fortissimo! Risposta perfetta!'
+                    ];
+                    resultDiv.textContent = `🏆 ${perfectMessages[Math.floor(Math.random() * perfectMessages.length)]}`;
+                } else {
+                    resultDiv.textContent = '✅ Corretto! 🎉';
+                }
+
                 resultDiv.className = 'result success show';
-                
                 gameState.score += 20;
                 gameState.streak++;
                 gameState.stats.correctAnswers++;
                 addXP(25);
-                
                 createParticles(window.innerWidth / 2, 400, '#48BB78');
                 createConfetti();
-                
                 gameState.stats.bestStreak = Math.max(gameState.stats.bestStreak, gameState.streak);
             } else {
                 resultDiv.textContent = `❌ Sbagliato! Risposta: ${gameState.currentQuiz.answer}`;
                 resultDiv.className = 'result error show';
                 gameState.streak = 0;
+                nextQuestionDelay = 4000; // Delay più lungo per risposte errate (4s)
             }
-            
+
             updateUI();
             saveGameState();
             
             setTimeout(() => {
                 startQuiz();
-            }, 2500);
+            }, nextQuestionDelay);
+        }
+
+        function validateQuizAnswer(number, answer) {
+            const expectedLetters = number.split('').map(digit => MATRIX[digit].letter.split('/'));
+            const userLetters = answer.replace(/[\s-]/g, '').split('');
+            const userPerfectLetters = answer.replace(/\s/g, '').split('-');
+
+            if (userLetters.length !== number.length) return { isCorrect: false };
+
+            const isCorrect = userLetters.every((letter, index) => expectedLetters[index].includes(letter));
+            const isPerfect = userPerfectLetters.every((pair, index) => pair === MATRIX[number[index]].letter);
+
+            return { isCorrect, isPerfect };
         }
 
         function handleQuizSkip() {
