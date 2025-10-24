@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pyragogy.github.io/fonetica-italiana-mnemonica/sitemap.xml
+Sitemap: https://ecosystem.pyragogy.org/sitemap.xml
