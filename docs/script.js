@@ -692,7 +692,6 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     hamburgerBtn.addEventListener('click', handleHamburgerToggle);
-    hamburgerBtn.addEventListener('touchstart', handleHamburgerToggle, { passive: false });
 
     document.getElementById('resetProgressBtn').addEventListener('click', resetGameState);
 
