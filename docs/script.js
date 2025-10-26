@@ -682,13 +682,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const handleHamburgerToggle = (e) => {
+        e.preventDefault(); // Previene comportamenti indesiderati come il "doppio tocco"
         const navLinks = document.getElementById('navLinks');
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
         const isExpanded = navLinks.classList.toggle('show');
         hamburgerBtn.classList.toggle('active');
         hamburgerBtn.setAttribute('aria-expanded', isExpanded);
-    });
+    };
+
+    hamburgerBtn.addEventListener('click', handleHamburgerToggle);
+    hamburgerBtn.addEventListener('touchstart', handleHamburgerToggle, { passive: false });
+
     document.getElementById('resetProgressBtn').addEventListener('click', resetGameState);
 
     // Event Listeners - Trainer

@@ -190,7 +190,7 @@
             width: 25px;
             height: 3px;
             margin: 5px 0;
-            background: var(--text-primary);
+            background: var(--accent-blue);
             transition: all 0.3s ease-in-out;
         }
 
@@ -1309,8 +1309,8 @@ footer {
     color: var(--text-secondary);
     font-size: 1.8rem;
     cursor: pointer;
-    transition: color 0.3s;
-    z-index: 1011; /* Assicura che sia cliccabile */
+    transition: color 0.3s, transform 0.3s;
+    z-index: 1012; /* Assicura che sia cliccabile sopra tutto */
 }
 
 .ai-widget-close:hover {
