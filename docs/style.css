@@ -1368,3 +1368,13 @@ footer {
         height: 55px;
     }
 }
+
+@media (max-width: 480px) {
+    .level-badge .level-text {
+        display: none;
+    }
+    .level-badge {
+        padding: 0.5rem 0.8rem;
+        gap: 0.3rem;
+    }
+}
