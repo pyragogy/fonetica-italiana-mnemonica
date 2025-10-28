@@ -202,6 +202,10 @@ function showPage(pageName) {
             btn.classList.add('active');
         }
     });
+    // Chiudi il menu hamburger dopo aver cliccato su un link
+    document.querySelectorAll('.nav-links button').forEach(btn => {
+        btn.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
+    });
     
     if (pageName === 'matrix') {
         renderMatrix();
