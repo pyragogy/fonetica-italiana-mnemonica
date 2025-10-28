@@ -739,12 +739,12 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         submitButton.textContent = 'Invio in corso...';
 
-        fetch('/', {
+        fetch(suggestionForm.getAttribute('action') || '/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
+            body: new URLSearchParams(formData).toString(),
         })
-        .then(() => {
+        .then(response => {
             suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
             setTimeout(closeModal, 2000);
         })
