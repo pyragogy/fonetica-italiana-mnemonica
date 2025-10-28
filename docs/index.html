@@ -239,7 +239,7 @@
                     <input type="text" class="trainer-input" id="trainerInput" placeholder="Inserisci un numero (es. 314)">
                     <div class="trainer-buttons">
                         <button class="submit-btn" id="submitBtn">Converti →</button>
-                        <button class="btn btn-secondary" id="suggestBtn">Suggerisci Parole</button>
+                        <button class="btn btn-secondary" id="suggestBtn">Cerca Parole</button>
                     </div>
                     <div class="result" id="trainerResult"></div>
                 </div>
@@ -270,6 +270,10 @@
                 <div class="setting-item">
                     <p>Resetta tutti i tuoi progressi (punteggio, livello, XP e achievement). <strong>Attenzione: questa azione è irreversibile.</strong></p>
                     <button class="btn btn-danger" id="resetProgressBtn">Resetta Progressi</button>
+                </div>
+                <div class="setting-item" style="margin-top: 1.5rem; justify-content: center;">
+                    <p style="text-align: center;">Hai una parola migliore? Aiuta la community a crescere!</p>
+                    <button class="btn btn-primary" id="openSuggestionModalBtn">Suggerisci una Parola</button>
                 </div>
             </div>
         </section>
@@ -334,6 +338,31 @@
 
     <button class="ai-fab" id="aiFab" aria-label="Apri assistente AI">🧠</button>
 
+    <!-- Suggestion Modal -->
+    <div class="modal-overlay" id="suggestionModalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeSuggestionModalBtn">&times;</button>
+            <h3>Suggerisci una Parola</h3>
+            <p>Il tuo contributo è prezioso! Invia una parola che associ a un numero.</p>
+            
+            <form name="suggestions" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="suggestionForm">
+                <p class="hidden">
+                    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+                </p>
+                <div class="form-group">
+                    <label for="suggestion-number">Numero</label>
+                    <input type="number" id="suggestion-number" name="number" required placeholder="Es. 141">
+                </div>
+                <div class="form-group">
+                    <label for="suggestion-word">Parola Suggerita</label>
+                    <input type="text" id="suggestion-word" name="word" required placeholder="Es. Treno">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Invia Suggerimento</button>
+            </form>
+            <div class="form-feedback" id="suggestionFeedback"></div>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-top">
@@ -362,7 +391,7 @@
         </div>
     </footer>
 
-    <script src="data/dictionary.js?v=1.1" defer></script>
+    <script src="dictionary.js?v=1.1" defer></script>
     <script src="script.js?v=1.1" defer></script>
 </body>
 </html>

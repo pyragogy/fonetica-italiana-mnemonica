@@ -447,7 +447,7 @@ function handleSuggestWords() {
     const resultDiv = document.getElementById('trainerResult');
 
     if (!/^\d+$/.test(input)) {
-        resultDiv.textContent = '❌ Inserisci solo numeri!';
+        resultDiv.textContent = '❌ Inserisci un numero per la ricerca!';
         resultDiv.className = 'result error show';
         return;
     }
@@ -455,7 +455,7 @@ function handleSuggestWords() {
     const words = dictionary[input];
 
     if (words && words.length > 0) {
-        resultDiv.innerHTML = `✨ Suggerimenti per ${input}: <br><strong>${words.join(', ')}</strong>`;
+        resultDiv.innerHTML = `✨ Parole per ${input}: <br><strong>${words.join(', ')}</strong>`;
         resultDiv.className = 'result success show';
     } else {
         resultDiv.textContent = `❌ Nessun suggerimento per ${input}`;
@@ -696,6 +696,63 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('resetProgressBtn').addEventListener('click', resetGameState);
 
     // Event Listeners - Trainer
+    document.getElementById('suggestBtn').textContent = 'Cerca Parole'; // Rinominiamo il pulsante
+
+    // Suggestion Modal Logic
+    const suggestionModalOverlay = document.getElementById('suggestionModalOverlay');
+    const openSuggestionModalBtn = document.getElementById('openSuggestionModalBtn');
+    const closeSuggestionModalBtn = document.getElementById('closeSuggestionModalBtn');
+    const suggestionForm = document.getElementById('suggestionForm');
+    const suggestionFeedback = document.getElementById('suggestionFeedback');
+
+    openSuggestionModalBtn.addEventListener('click', () => {
+        suggestionModalOverlay.classList.add('show');
+        // Pre-compila il numero se presente nel trainer
+        const trainerNumber = document.getElementById('trainerInput').value;
+        if (/^\d+$/.test(trainerNumber)) {
+            document.getElementById('suggestion-number').value = trainerNumber;
+        }
+    });
+
+    const closeModal = () => {
+        suggestionModalOverlay.classList.remove('show');
+        suggestionFeedback.textContent = '';
+        suggestionForm.reset();
+    };
+
+    closeSuggestionModalBtn.addEventListener('click', closeModal);
+    suggestionModalOverlay.addEventListener('click', (e) => {
+        if (e.target === suggestionModalOverlay) {
+            closeModal();
+        }
+    });
+
+    suggestionForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(suggestionForm);
+        const submitButton = suggestionForm.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.textContent = 'Invio in corso...';
+
+        fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
+            setTimeout(closeModal, 2000);
+        })
+        .catch((error) => {
+            suggestionFeedback.textContent = '❌ Errore. Riprova più tardi.';
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Invia Suggerimento';
+        });
+    });
+
     document.getElementById('encodeBtn').addEventListener('click', () => setMode('encode'));
     document.getElementById('decodeBtn').addEventListener('click', () => setMode('decode'));
     document.getElementById('submitBtn').addEventListener('click', handleTrainerSubmit);

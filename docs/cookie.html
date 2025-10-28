@@ -6,7 +6,7 @@
     
     <title>Cookie Policy - Eco System</title>
     <meta name="description" content="Cookie Policy per il sito Eco System.">
-    <meta name="robots" content="noindex, follow">
+    <!-- <meta name="robots" content="noindex, follow"> Rimossa per consentire l'indicizzazione -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Cookie Policy - Eco System">
@@ -25,47 +25,41 @@
     <link rel="icon" href="assets/immagini/logo.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="assets/immagini/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Manrope:wght@800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #1A202C;
-            --text-primary: #F7FAFC;
-            --text-secondary: #A0AEC0;
-            --accent-blue: #4299E1;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.8;
-            padding: 2rem;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 15px;
-        }
-        h1, h2 {
-            color: var(--accent-blue);
-            font-family: 'Manrope', sans-serif;
-        }
-        a {
-            color: var(--accent-blue);
-        }
-    </style>
+    <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 <body>
-    <div class="container">
-        <h1>Cookie Policy di Eco System</h1>
-        <p>Data di entrata in vigore: 25 Luglio 2024</p>
+    <canvas id="bgCanvas"></canvas>
 
-        <h2>Cosa sono i cookie?</h2>
-        <p>Questo sito web non utilizza cookie. I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla successiva visita.</p>
-        
-        <h2>Cookie utilizzati da questo sito</h2>
-        <p>Eco System non utilizza alcun tipo di cookie, né tecnico, né di profilazione, né di terze parti. Per salvare i progressi di gioco, utilizziamo la tecnologia <a href="https://developer.mozilla.org/it/docs/Web/API/Window/localStorage" target="_blank" rel="noopener noreferrer">Web Storage (localStorage)</a> del browser. Questi dati rimangono esclusivamente sul tuo dispositivo e non vengono utilizzati per tracciare la tua attività.</p>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" style="text-decoration: none;"><div class="logo">✨ Eco System</div></a>
+        </div>
+    </nav>
+
+    <div class="page active" style="padding-top: 100px;">
+        <section class="section">
+            <div class="trainer-container" style="max-width: 900px;">
+                <h1 class="section-title" style="margin-bottom: 2rem; color: var(--accent-blue);">Cookie Policy di Eco System</h1>
+                <p>Data di entrata in vigore: 25 Luglio 2024</p>
+
+                <h2 style="color: var(--accent-blue); margin-top: 2rem;">Cosa sono i cookie?</h2>
+                <p>Questo sito web non utilizza cookie. I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla successiva visita.</p>
+                
+                <h2 style="color: var(--accent-blue); margin-top: 2rem;">Cookie utilizzati da questo sito</h2>
+                <p>Eco System non utilizza alcun tipo di cookie, né tecnico, né di profilazione, né di terze parti. Per salvare i progressi di gioco, utilizziamo la tecnologia <a href="https://developer.mozilla.org/it/docs/Web/API/Window/localStorage" target="_blank" rel="noopener noreferrer">Web Storage (localStorage)</a> del browser. Questi dati rimangono esclusivamente sul tuo dispositivo e non vengono utilizzati per tracciare la tua attività.</p>
+            </div>
+        </section>
     </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eco System by Pyragogy. Tutti i diritti riservati. Creato da <a href="https://www.linkedin.com/in/bergamohub001/" target="_blank" rel="noopener noreferrer">Fabrizio Terzi</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=1.1" defer></script>
 </body>
 </html>
