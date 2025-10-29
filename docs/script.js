@@ -739,12 +739,16 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         submitButton.textContent = 'Invio in corso...';
 
-        fetch(suggestionForm.getAttribute('action') || '/', {
+        // Aggiungi il token reCAPTCHA ai dati del modulo
+        const token = grecaptcha.enterprise.getResponse();
+        formData.append('g-recaptcha-response', token);
+
+        fetch('/.netlify/functions/submit-suggestion', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString(),
         })
-        .then(response => {
+        .then(response => { // La risposta viene dalla nostra Netlify Function
             suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
             setTimeout(closeModal, 2000);
         })
@@ -754,6 +758,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .finally(() => {
             submitButton.disabled = false;
             submitButton.textContent = 'Invia Suggerimento';
+            grecaptcha.enterprise.reset(); // Resetta il widget reCAPTCHA
         });
     });
 

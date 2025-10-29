@@ -57,6 +57,9 @@
     }
     </script>
 
+    <!-- reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+
     <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 <body>
@@ -345,7 +348,7 @@
             <h3>Suggerisci una Parola</h3>
             <p>Il tuo contributo è prezioso! Invia una parola che associ a un numero.</p>
             
-            <form name="suggestions" method="POST" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="bot-field" id="suggestionForm">
+            <form name="suggestions" data-netlify="true" netlify-honeypot="bot-field" id="suggestionForm">
                 <input type="hidden" name="form-name" value="suggestions" />
                 <p class="hidden">
                     <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
@@ -358,7 +361,7 @@
                     <label for="suggestion-word">Parola Suggerita</label>
                     <input type="text" id="suggestion-word" name="word" required placeholder="Es. Treno">
                 </div>
-                <div data-netlify-recaptcha="true" style="margin-bottom: 1.5rem;"></div>
+                <div class="g-recaptcha" data-sitekey="6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ" data-action="LOGIN" style="margin-bottom: 1.5rem;"></div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Invia Suggerimento</button>
             </form>
             <div class="form-feedback" id="suggestionFeedback"></div>
