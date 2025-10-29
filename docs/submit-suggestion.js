@@ -44,10 +44,12 @@ exports.handler = async (event) => {
     // Rimuovi il token reCAPTCHA prima di inviare a Netlify
     params.delete('g-recaptcha-response');
 
-    await fetch(process.env.URL, {
+    // L'endpoint deve essere la pagina dove si trova il form (in questo caso, la root '/')
+    // e il corpo deve essere codificato correttamente per Netlify.
+    await fetch("/", {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: params.toString(),
+      body: params.toString()
     });
 
     return { statusCode: 200, body: 'Suggestion submitted successfully.' };
