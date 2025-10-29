@@ -12,7 +12,7 @@ exports.handler = async (event) => {
 
   // 1. Verifica del token reCAPTCHA con Google
   try {
-    const recaptchaResponse = await fetch(`https://recaptchaenterprise.googleapis.com/v1/projects/YOUR_GOOGLE_CLOUD_PROJECT_ID/assessments?key=YOUR_GOOGLE_CLOUD_API_KEY`, {
+    const recaptchaResponse = await fetch(`https://recaptchaenterprise.googleapis.com/v1/projects/ecosystem-1761686232893/assessments?key=${process.env.RECAPTCHA_API_KEY}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ exports.handler = async (event) => {
             event: {
                 token: recaptchaToken,
                 siteKey: '6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ', // La tua Site Key
-                expectedAction: 'LOGIN' // L'azione che hai definito nel frontend
+                expectedAction: 'SUBMIT_SUGGESTION' // L'azione che hai definito nel frontend
             }
         })
     });
