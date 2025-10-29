@@ -46,7 +46,7 @@ exports.handler = async (event) => {
 
     // L'endpoint deve essere la pagina dove si trova il form (in questo caso, la root '/')
     // e il corpo deve essere codificato correttamente per Netlify.
-    await fetch("/", {
+    await fetch(`${process.env.URL}/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()

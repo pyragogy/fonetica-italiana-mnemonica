@@ -78,59 +78,146 @@ const initialGameState = {
 function initCanvas() {
     const canvas = document.getElementById('bgCanvas');
     const ctx = canvas.getContext('2d');
+    const style = getComputedStyle(document.body);
     let animationFrameId;
-    
+
+    let points = [];
+    const mouse = {
+        x: null,
+        y: null,
+        radius: 150
+    };
+
+    window.addEventListener('mousemove', event => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+    });
+    window.addEventListener('mouseout', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
     function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+        createPoints();
     }
-    
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    const points = [];
-    const pointCount = 40;
-    
-    for (let i = 0; i < pointCount; i++) {
-        points.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            vx: (Math.random() - 0.5) * 0.5,
-            vy: (Math.random() - 0.5) * 0.5,
-            radius: Math.random() * 2 + 1
-        });
+    function createPoints() {
+        points = [];
+        const pointCount = (canvas.width * canvas.height) / 9000; // Adatta il numero di punti alla dimensione dello schermo
+        for (let i = 0; i < pointCount; i++) {
+            points.push({
+                x: Math.random() * canvas.width, // Posizione iniziale
+                y: Math.random() * canvas.height,
+                originX: Math.random() * canvas.width, // Punto di "ancoraggio" per l'orbita
+                originY: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.07, // Velocità di spostamento dell'ancoraggio (ulteriormente rallentata)
+                vy: (Math.random() - 0.5) * 0.07,
+                baseRadius: Math.random() * 1.2 + 0.8, // Raggio di base
+                radius: Math.random() * 1.2 + 0.8,
+                angle: Math.random() * Math.PI * 2, // Angolo per il movimento oscillatorio
+                speed: 0.002 + Math.random() * 0.008, // Velocità di oscillazione (ulteriormente rallentata)
+                orbit: 50 + Math.random() * 50, // Ampiezza dell'oscillazione
+                isFiring: false,
+                fireProgress: 0
+            });
+        }
     }
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const accentColor = style.getPropertyValue('--accent-blue').trim();
+        const connectionDistance = 220; // Aumentata la distanza per una rete ancora più fitta
 
-        points.forEach(point => {
-            point.x += point.vx;
-            point.y += point.vy;
+        for (let i = 0; i < points.length; i++) {
+            const point = points[i];
 
-            if (point.x < 0 || point.x > canvas.width) point.vx *= -1;
-            if (point.y < 0 || point.y > canvas.height) point.vy *= -1;
+            // Effetto "attivazione neurale" (spot di luce)
+            if (!point.isFiring && Math.random() < 0.0002) {
+                point.isFiring = true;
+                point.fireProgress = 0;
+            }
 
-            ctx.beginPath();
-            ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(66, 153, 225, 0.3)';
-            ctx.fill();
+            if (point.isFiring) {
+                point.fireProgress++;
+                if (point.fireProgress >= 120) point.isFiring = false;
+            }
 
-            points.forEach(otherPoint => {
+            // Movimento organico oscillatorio
+            point.angle += point.speed;
+            point.originX += point.vx;
+            point.originY += point.vy;
+            point.x = point.originX + Math.cos(point.angle) * point.orbit;
+            point.y = point.originY + Math.sin(point.angle) * point.orbit;
+
+            // Effetto "respiro" per i neuroni
+            point.radius = point.baseRadius + Math.sin(point.angle) * 0.5;
+
+            // Bordi (per i punti di ancoraggio)
+            if (point.originX < 0 || point.originX > canvas.width) point.vx *= -1;
+            if (point.originY < 0 || point.originY > canvas.height) point.vy *= -1;
+
+            // Interazione con il mouse
+            const dxMouse = mouse.x - point.x;
+            const dyMouse = mouse.y - point.y;
+            const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+            if (distanceMouse < mouse.radius) {
+                // Il neurone si "illumina" e si espande vicino al mouse
+                point.radius = point.baseRadius + (1 - distanceMouse / mouse.radius) * 3;
+                
+                // Disegna una linea di connessione al mouse
+                ctx.beginPath();
+                ctx.moveTo(point.x, point.y);
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.strokeStyle = `${accentColor}${Math.floor((1 - distanceMouse / mouse.radius) * 30).toString(16).padStart(2, '0')}`;
+                ctx.lineWidth = 0.5;
+                ctx.stroke();
+            }
+
+            // Disegna lo spot di luce se attivo
+            if (point.isFiring) {
+                const pulse = Math.sin((point.fireProgress / 120) * Math.PI); // 0 -> 1 -> 0
+                ctx.save();
+                ctx.fillStyle = '#FFFFFF';
+                ctx.shadowColor = accentColor;
+                ctx.shadowBlur = pulse * 25;
+                ctx.globalAlpha = pulse * 0.8;
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, point.radius + pulse * 4, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            // Disegna punto
+            // (Spostato dopo le linee per un migliore effetto visivo)
+
+            // Disegna linee di connessione tra neuroni
+            for (let j = i + 1; j < points.length; j++) {
+                const otherPoint = points[j];
                 const dx = point.x - otherPoint.x;
                 const dy = point.y - otherPoint.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 100) {
+                if (distance < connectionDistance) {
                     ctx.beginPath();
                     ctx.moveTo(point.x, point.y);
                     ctx.lineTo(otherPoint.x, otherPoint.y);
-                    ctx.strokeStyle = `rgba(66, 153, 225, ${0.2 * (1 - distance / 100)})`;
-                    ctx.lineWidth = 1;
+                    ctx.strokeStyle = `${accentColor}${Math.floor((1 - distance / connectionDistance) * 50).toString(16).padStart(2, '0')}`;
+                    ctx.lineWidth = (1 - distance / connectionDistance) * 1.2;
                     ctx.stroke();
                 }
-            });
-        });
+            }
+
+            // Disegna il punto sopra le linee
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `${accentColor}99`; // Leggera trasparenza
+            ctx.fill();
+        }
 
         animationFrameId = requestAnimationFrame(animate);
     }
