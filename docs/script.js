@@ -820,59 +820,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Disabilita il pulsante di invio del form finché reCAPTCHA non è pronto
-    const submitButton = suggestionForm.querySelector('button[type="submit"]');
-    submitButton.disabled = true;
-    grecaptcha.enterprise.ready(function() {
-        // Abilita il pulsante solo quando la libreria è caricata
-        submitButton.disabled = false;
-    });
-
     suggestionForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const formData = new FormData(suggestionForm);
+        const submitButton = suggestionForm.querySelector('button[type="submit"]');
         submitButton.disabled = true;
         submitButton.textContent = 'Invio in corso...';
-        suggestionFeedback.textContent = ''; // Clear previous feedback
 
-        // Assicurati che la libreria reCAPTCHA sia pronta prima di eseguire la chiamata
-        grecaptcha.enterprise.ready(function() {
-            // Execute reCAPTCHA Enterprise to get the token
-            grecaptcha.enterprise.execute('6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ', {action: 'SUBMIT_SUGGESTION'})
-                .then(function(token) {
-                    // Add the token to the form data
-                    formData.append('g-recaptcha-response', token);
+        // Aggiungi il token reCAPTCHA ai dati del modulo
+        const token = grecaptcha.enterprise.getResponse();
+        formData.append('g-recaptcha-response', token);
 
-                    // Submit the form data directly to Netlify's form endpoint.
-                    // Netlify will intercept this POST request and trigger the submission-created function.
-                    fetch(suggestionForm.action || '/', { // Use form action or default to /
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                        body: new URLSearchParams(formData).toString(),
-                    })
-                    .then(response => {
-                        // Netlify's form handling will respond. If response.ok, it means Netlify received the form.
-                        // The actual reCAPTCHA verification happens in the submission-created function.
-                        suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
-                        setTimeout(closeModal, 2000);
-                    })
-                    .catch((error) => {
-                        console.error('Error submitting form to Netlify:', error);
-                        suggestionFeedback.textContent = '❌ Errore di rete. Riprova più tardi.';
-                    })
-                    .finally(() => {
-                        submitButton.disabled = false;
-                        submitButton.textContent = 'Invia Suggerimento';
-                        // Non è necessario resettare un reCAPTCHA invisibile, ma non causa problemi
-                    });
-                })
-                .catch(function(error) {
-                    console.error('reCAPTCHA Enterprise execution failed:', error);
-                    suggestionFeedback.textContent = '❌ Errore reCAPTCHA. Riprova più tardi.';
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Invia Suggerimento';
-                });
+        fetch('/.netlify/functions/submit-suggestion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams(formData).toString(),
+        })
+        .then(response => { // La risposta viene dalla nostra Netlify Function
+            suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
+            setTimeout(closeModal, 2000);
+        })
+        .catch((error) => {
+            suggestionFeedback.textContent = '❌ Errore. Riprova più tardi.';
+        })
+        .finally(() => {
+            submitButton.disabled = false;
+            submitButton.textContent = 'Invia Suggerimento';
+            grecaptcha.enterprise.reset(); // Resetta il widget reCAPTCHA
         });
     });
 
