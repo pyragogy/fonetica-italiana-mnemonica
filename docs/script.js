@@ -715,8 +715,10 @@ function setTrainerTab(tab) {
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     loadGameState();
-    // Initialize canvas
-    initCanvas();
+    // Initialize canvas only on larger screens to save performance on mobile
+    if (window.innerWidth > 768) {
+        initCanvas();
+    }
     
     // Initialize UI
     updateUI();

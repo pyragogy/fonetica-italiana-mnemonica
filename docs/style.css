@@ -285,6 +285,11 @@
 
         @media (max-width: 768px) {
             .score-bar { top: 67px; }
+            /* Disabilita il blur su mobile per performance migliori */
+            nav, .score-bar {
+                -webkit-backdrop-filter: none;
+                backdrop-filter: none;
+            }
         }
 
         .score-item {
