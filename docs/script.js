@@ -829,41 +829,44 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.textContent = 'Invio in corso...';
         suggestionFeedback.textContent = ''; // Clear previous feedback
 
-        // Execute reCAPTCHA Enterprise to get the token
-        grecaptcha.enterprise.execute('6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ', {action: 'SUBMIT_SUGGESTION'})
-            .then(function(token) {
-                // Add the token to the form data
-                formData.append('g-recaptcha-response', token);
+        // Assicurati che la libreria reCAPTCHA sia pronta prima di eseguire la chiamata
+        grecaptcha.enterprise.ready(function() {
+            // Execute reCAPTCHA Enterprise to get the token
+            grecaptcha.enterprise.execute('6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ', {action: 'SUBMIT_SUGGESTION'})
+                .then(function(token) {
+                    // Add the token to the form data
+                    formData.append('g-recaptcha-response', token);
 
-                // Submit the form data directly to Netlify's form endpoint.
-                // Netlify will intercept this POST request and trigger the submission-created function.
-                fetch(suggestionForm.action || '/', { // Use form action or default to /
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString(),
+                    // Submit the form data directly to Netlify's form endpoint.
+                    // Netlify will intercept this POST request and trigger the submission-created function.
+                    fetch(suggestionForm.action || '/', { // Use form action or default to /
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: new URLSearchParams(formData).toString(),
+                    })
+                    .then(response => {
+                        // Netlify's form handling will respond. If response.ok, it means Netlify received the form.
+                        // The actual reCAPTCHA verification happens in the submission-created function.
+                        suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
+                        setTimeout(closeModal, 2000);
+                    })
+                    .catch((error) => {
+                        console.error('Error submitting form to Netlify:', error);
+                        suggestionFeedback.textContent = '❌ Errore di rete. Riprova più tardi.';
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Invia Suggerimento';
+                        // Non è necessario resettare un reCAPTCHA invisibile, ma non causa problemi
+                    });
                 })
-                .then(response => {
-                    // Netlify's form handling will respond. If response.ok, it means Netlify received the form.
-                    // The actual reCAPTCHA verification happens in the submission-created function.
-                    suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
-                    setTimeout(closeModal, 2000);
-                })
-                .catch((error) => {
-                    console.error('Error submitting form to Netlify:', error);
-                    suggestionFeedback.textContent = '❌ Errore di rete. Riprova più tardi.';
-                })
-                .finally(() => {
+                .catch(function(error) {
+                    console.error('reCAPTCHA Enterprise execution failed:', error);
+                    suggestionFeedback.textContent = '❌ Errore reCAPTCHA. Riprova più tardi.';
                     submitButton.disabled = false;
                     submitButton.textContent = 'Invia Suggerimento';
-                    grecaptcha.enterprise.reset(); // Reset the reCAPTCHA widget
                 });
-            })
-            .catch(function(error) {
-                console.error('reCAPTCHA Enterprise execution failed:', error);
-                suggestionFeedback.textContent = '❌ Errore reCAPTCHA. Riprova più tardi.';
-                submitButton.disabled = false;
-                submitButton.textContent = 'Invia Suggerimento';
-            });
+        });
     });
 
     document.getElementById('encodeBtn').addEventListener('click', () => setMode('encode'));
