@@ -362,11 +362,11 @@ Sì! Il sistema può essere adattato per memorizzare:
 
 Se utilizzi Eco-System per la ricerca, ti preghiamo di citare la nostra pubblicazione:
 
-Terzi, F. (2025). *ECO-SYSTEM: UN FRAMEWORK DI CONVERSIONE FONETICA MNEMONICA PER LA LINGUA ITALIANA* (Version v1.0). Zenodo. https://doi.org/10.5281/zenodo.17436054
+Terzi, F. (2025). *ECO-SYSTEM: UN FRAMEWORK DI CONVERSIONE FONETICA MNEMONICA PER LA LINGUA ITALIANA* (Version v1.0). Zenodo. https://zenodo.org/records/17481661
 
 ## Riferimenti
 
-- [ECO-SYSTEM: UN FRAMEWORK DI CONVERSIONE FONETICA MNEMONICA PER LA LINGUA ITALIANA](https://doi.org/10.5281/zenodo.17436054)
+- [ECO-SYSTEM: UN FRAMEWORK DI CONVERSIONE FONETICA MNEMONICA PER LA LINGUA ITALIANA](https://zenodo.org/records/17481661)
 
 **Attribuzione**: "Comunità di Pyragogy Italia"  
 Questo progetto è stato creato e viene aggiornato da **Fabrizio Terzi**.

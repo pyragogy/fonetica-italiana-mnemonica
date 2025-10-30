@@ -323,7 +323,7 @@
 
             <div class="links-container">
                 <a href="https://github.com/pyragogy/fonetica-italiana-mnemonica" class="btn btn-secondary" target="_blank">GitHub Repository</a>
-                <a href="https://doi.org/10.5281/zenodo.17436054" class="btn btn-secondary" target="_blank">Leggi la Tesi (DOI)</a>
+                <a href="https://zenodo.org/records/17481661" class="btn btn-secondary" target="_blank">Leggi la Tesi (DOI)</a>
             </div>
         </section>
     </div>
@@ -361,7 +361,7 @@
                     <label for="suggestion-word">Parola Suggerita</label>
                     <input type="text" id="suggestion-word" name="word" required placeholder="Es. Treno">
                 </div>
-                <div class="g-recaptcha" data-sitekey="6LfzdPorAAAAAOfWCzYl9eJBjCeUiavoOgMQHNUJ" data-action="SUBMIT_SUGGESTION" style="margin-bottom: 1.5rem;"></div>
+                <input type="hidden" name="g-recaptcha-response" id="recaptcha-token-input">
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Invia Suggerimento</button>
             </form>
             <div class="form-feedback" id="suggestionFeedback"></div>

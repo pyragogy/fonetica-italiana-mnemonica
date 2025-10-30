@@ -359,11 +359,11 @@ Yes! The system can be adapted to memorize:
 
 If you use Eco-System for research, please cite our publication:
 
-Terzi, F. (2025). *ECO-SYSTEM: A MNEMONIC PHONETIC CONVERSION FRAMEWORK FOR THE ITALIAN LANGUAGE* (Version v1.0). Zenodo. https://doi.org/10.5281/zenodo.17436054
+Terzi, F. (2025). *ECO-SYSTEM: A MNEMONIC PHONETIC CONVERSION FRAMEWORK FOR THE ITALIAN LANGUAGE* (Version v1.0). Zenodo. https://zenodo.org/records/17481661
 
 ## References
 
-- [ECO-SYSTEM: A MNEMONIC PHONETIC CONVERSION FRAMEWORK FOR THE ITALIAN LANGUAGE](https://doi.org/10.5281/zenodo.17436054)
+- [ECO-SYSTEM: A MNEMONIC PHONETIC CONVERSION FRAMEWORK FOR THE ITALIAN LANGUAGE](https://zenodo.org/records/17481661)
 
 **Attribution**: "Pyragogy Italia Community"
 This project was created and is updated by **Fabrizio Terzi**.
