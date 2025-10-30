@@ -820,11 +820,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Disabilita il pulsante di invio del form finché reCAPTCHA non è pronto
+    const submitButton = suggestionForm.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    grecaptcha.enterprise.ready(function() {
+        // Abilita il pulsante solo quando la libreria è caricata
+        submitButton.disabled = false;
+    });
+
     suggestionForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         const formData = new FormData(suggestionForm);
-        const submitButton = suggestionForm.querySelector('button[type="submit"]');
         submitButton.disabled = true;
         submitButton.textContent = 'Invio in corso...';
         suggestionFeedback.textContent = ''; // Clear previous feedback
