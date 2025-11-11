@@ -7,11 +7,11 @@ const MATRIX = {
     '2': { letter: 'D', examples: 'Due, Duna', logic: 'Occlusiva dentale', tip: 'Due inizia con D', color: '#ED64A6' },
     '3': { letter: 'T', examples: 'Tre, Tè', logic: 'Occlusiva alveolare', tip: 'Tre inizia con T', color: '#ECC94B' },
     '4': { letter: 'R', examples: 'Re, Ramo,', logic: 'Vibrante', tip: 'Quattro finisce con R', color: '#9F7AEA' },
-    '5': { letter: 'C/G', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
-    '6': { letter: 'S/SC', examples: 'Sole, Sala', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
-    '7': { letter: 'K/Q', examples: 'Cane, Culla', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
-    '8': { letter: 'B/V', examples: 'Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
-    '9': { letter: 'P/F', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
+    '5': { letter: 'C-G', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '6': { letter: 'S-SC', examples: 'Sole, Sala', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
+    '7': { letter: 'K-Q', examples: 'Cane, Culla', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
+    '8': { letter: 'B-V', examples: 'Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
+    '9': { letter: 'P-F', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
 };
 
 const REVERSE_MATRIX = {
@@ -289,6 +289,10 @@ function showPage(pageName) {
             btn.classList.add('active');
         }
     });
+    // Chiudi il menu hamburger dopo aver cliccato su un link
+    document.querySelectorAll('.nav-links button').forEach(btn => {
+        btn.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
+    });
     
     if (pageName === 'matrix') {
         renderMatrix();
@@ -398,7 +402,13 @@ function decode(word) {
         const char = w[i];
         const next = w[i+1];
 
-        if (char === 'C' || char === 'G') {
+        if (char === 'C') {
+            if (next === 'E' || next === 'I') {
+                result += '5'; // Soft sound
+            } else {
+                result += '7'; // Hard sound
+            }
+        } else if (char === 'G') {
             if (next === 'E' || next === 'I') {
                 result += '5'; // Soft sound
             } else {
@@ -720,19 +730,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('startBtn').addEventListener('click', () => showPage('trainer'));
     document.getElementById('exploreBtn').addEventListener('click', () => showPage('matrix'));
     document.getElementById('joinBtn').addEventListener('click', () => showPage('insights'));
-
-    // Aggiungi un singolo event listener per chiudere il menu hamburger quando si clicca un link
-    document.querySelectorAll('.nav-links button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const navLinks = document.getElementById('navLinks');
-            if (navLinks.classList.contains('show')) {
-                const hamburgerBtn = document.getElementById('hamburgerBtn');
-                navLinks.classList.remove('show');
-                hamburgerBtn.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-            }
-        });
-    });
 
     // Event Listeners - AI Widget
     const aiFab = document.getElementById('aiFab');
