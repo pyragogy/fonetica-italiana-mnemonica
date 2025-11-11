@@ -2,16 +2,16 @@
 
 // Matrix Data
 const MATRIX = {
-    '0': { letter: 'Z', examples: 'Zia, Zoo, Zuppa', logic: 'Sibilante', tip: 'Zero inizia con Z', color: '#4299E1' },
-    '1': { letter: 'N', examples: 'Noè, Neo, Nube', logic: 'Nasale dentale', tip: 'Uno contiene N', color: '#48BB78' },
-    '2': { letter: 'D', examples: 'Due, Dama, Duna', logic: 'Occlusiva dentale', tip: 'Due inizia con D', color: '#ED64A6' },
-    '3': { letter: 'T', examples: 'Tre, Tè, Tela', logic: 'Occlusiva alveolare', tip: 'Tre inizia con T', color: '#ECC94B' },
-    '4': { letter: 'R', examples: 'Re, Ramo, Rullo', logic: 'Vibrante', tip: 'Quattro finisce con R', color: '#9F7AEA' },
-    '5': { letter: 'C/G', examples: 'Cielo, Gelo, Gioiello', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
-    '6': { letter: 'S/SC', examples: 'Sole, Sala, Sciarpa', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
-    '7': { letter: 'K/Q', examples: 'Cane, Culla, Colle', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
-    '8': { letter: 'B/V', examples: 'Bolla, Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
-    '9': { letter: 'P/F', examples: 'Palla, Fumo, Pelo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
+    '0': { letter: 'Z', examples: 'Zia, Zoo', logic: 'Sibilante', tip: 'Zero inizia con Z', color: '#4299E1' },
+    '1': { letter: 'N', examples: 'Noè, Neo', logic: 'Nasale dentale', tip: 'Uno contiene N', color: '#48BB78' },
+    '2': { letter: 'D', examples: 'Due, Duna', logic: 'Occlusiva dentale', tip: 'Due inizia con D', color: '#ED64A6' },
+    '3': { letter: 'T', examples: 'Tre, Tè', logic: 'Occlusiva alveolare', tip: 'Tre inizia con T', color: '#ECC94B' },
+    '4': { letter: 'R', examples: 'Re, Ramo,', logic: 'Vibrante', tip: 'Quattro finisce con R', color: '#9F7AEA' },
+    '5': { letter: 'C/G', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '6': { letter: 'S/SC', examples: 'Sole, Sala', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
+    '7': { letter: 'K/Q', examples: 'Cane, Culla', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
+    '8': { letter: 'B/V', examples: 'Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
+    '9': { letter: 'P/F', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
 };
 
 const REVERSE_MATRIX = {
@@ -289,10 +289,6 @@ function showPage(pageName) {
             btn.classList.add('active');
         }
     });
-    // Chiudi il menu hamburger dopo aver cliccato su un link
-    document.querySelectorAll('.nav-links button').forEach(btn => {
-        btn.addEventListener('click', () => document.getElementById('navLinks').classList.remove('show'));
-    });
     
     if (pageName === 'matrix') {
         renderMatrix();
@@ -402,13 +398,7 @@ function decode(word) {
         const char = w[i];
         const next = w[i+1];
 
-        if (char === 'C') {
-            if (next === 'E' || next === 'I') {
-                result += '5'; // Soft sound
-            } else {
-                result += '7'; // Hard sound
-            }
-        } else if (char === 'G') {
+        if (char === 'C' || char === 'G') {
             if (next === 'E' || next === 'I') {
                 result += '5'; // Soft sound
             } else {
@@ -731,6 +721,19 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('exploreBtn').addEventListener('click', () => showPage('matrix'));
     document.getElementById('joinBtn').addEventListener('click', () => showPage('insights'));
 
+    // Aggiungi un singolo event listener per chiudere il menu hamburger quando si clicca un link
+    document.querySelectorAll('.nav-links button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('show')) {
+                const hamburgerBtn = document.getElementById('hamburgerBtn');
+                navLinks.classList.remove('show');
+                hamburgerBtn.classList.remove('active');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
     // Event Listeners - AI Widget
     const aiFab = document.getElementById('aiFab');
     const aiWidgetContainer = document.getElementById('aiWidgetContainer');
@@ -742,21 +745,90 @@ document.addEventListener('DOMContentLoaded', function() {
         aiWidgetContainer.classList.add('show');
         aiFab.classList.add('hide');
 
-        // Mostra l'indicatore di "sta scrivendo" e poi il messaggio
-        if (!aiWidgetBody.querySelector('.ai-message')) {
+        // Inizializza l'interfaccia interattiva dell'AI se non è già presente
+        if (!aiWidgetBody.querySelector('.ai-input-form')) {
             aiWidgetBody.innerHTML = `
-                <div class="typing-indicator">
-                    <span></span><span></span><span></span>
+                <div class="ai-message">
+                    Ciao! Inserisci un numero e ti aiuterò a creare un'immagine mnemonica per ricordarlo.
                 </div>
+                <form class="ai-input-form" id="aiForm">
+                    <input type="text" id="aiInput" placeholder="Es. 314" inputmode="numeric" pattern="[0-9]*">
+                    <button type="submit" id="aiSubmitBtn">Crea Eco</button>
+                </form>
+                <div class="ai-result" id="aiResult"></div>
             `;
-            aiWidgetTimeout = setTimeout(() => {
-                aiWidgetBody.innerHTML = `
-                    <div class="ai-message">
-                        Ciao! Sono l'assistente AI di Eco System. Attualmente sono in fase di sviluppo, ma presto potrò aiutarti a creare immagini mnemoniche personalizzate. A presto!
-                    </div>
-                `;
-            }, 2000);
+
+            document.getElementById('aiForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                handleAiSubmit();
+            });
         }
+    }
+
+    function handleAiSubmit() {
+        const input = document.getElementById('aiInput').value.trim();
+        const resultDiv = document.getElementById('aiResult');
+
+        if (!/^\d+$/.test(input)) {
+            resultDiv.innerHTML = `<div class="ai-message error">Inserisci solo numeri, per favore.</div>`;
+            return;
+        }
+        if (input.length > 10) {
+            resultDiv.innerHTML = `<div class="ai-message error">Numero troppo lungo! Prova con un massimo di 10 cifre.</div>`;
+            return;
+        }
+
+        resultDiv.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
+
+        setTimeout(() => {
+            const chunks = input.match(/.{1,2}/g) || [];
+            const wordData = chunks.map(chunk => {
+                if (dictionary[chunk] && dictionary[chunk].length > 0) {
+                    return { chunk, word: dictionary[chunk][0] }; // Prendi la prima parola per coerenza
+                }
+                return { chunk, word: null };
+            });
+
+            if (wordData.some(w => w.word === null)) {
+                const missingChunks = wordData.filter(w => w.word === null).map(w => w.chunk).join(', ');
+                resultDiv.innerHTML = `<div class="ai-message error">Non ho trovato parole per: ${missingChunks}. Prova a suggerirne una!</div>`;
+                return;
+            }
+
+            const story = generateMnemonicStory(wordData);
+            resultDiv.innerHTML = `<div class="ai-message">${story}</div>`;
+        }, 1200);
+    }
+
+    function generateMnemonicStory(wordData) {
+        const items = wordData.map(d => `<strong>${d.word}</strong> (${d.chunk})`);
+        
+        if (items.length === 0) {
+            return "Nessun numero inserito.";
+        }
+        if (items.length === 1) {
+            return `Immagina vividamente: ${items[0]}.`;
+        }
+        if (items.length === 2) {
+            const templates = [
+                `Pensa a ${items[0]} che interagisce con ${items[1]}.`,
+                `Visualizza ${items[0]} e ${items[1]} sulla stessa scena.`,
+                `Un ${items[0]} rotola verso ${items[1]}.`
+            ];
+            return templates[Math.floor(Math.random() * templates.length)];
+        }
+        if (items.length === 3) {
+            const templates = [
+                `Un ${items[0]} viene dato a ${items[1]}, che lo usa per colpire ${items[2]}.`,
+                `Sopra ${items[0]} c'è ${items[1]}, e accanto c'è ${items[2]}.`
+            ];
+            return templates[Math.floor(Math.random() * templates.length)];
+        }
+        
+        // Per storie più lunghe, crea una sequenza
+        let story = "Immagina questa sequenza: " + items.join(', poi ');
+        story += ".";
+        return story;
     }
 
     function closeAiWidget() {

@@ -1,7 +1,7 @@
 const dictionary = {
 "0": ["Zoo", "Zia"],
 "1": ["Noè", "Neo"],
-"2": ["Due", "Dea"],
+"2": ["Due", "Dea","Duo"],
 "3": ["Tè", "Tuo"],
 "4": ["Re", "Rio"],
 "5": ["Ciao", "Gioia"],
