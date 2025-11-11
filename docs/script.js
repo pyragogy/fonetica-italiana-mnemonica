@@ -745,90 +745,21 @@ document.addEventListener('DOMContentLoaded', function() {
         aiWidgetContainer.classList.add('show');
         aiFab.classList.add('hide');
 
-        // Inizializza l'interfaccia interattiva dell'AI se non è già presente
-        if (!aiWidgetBody.querySelector('.ai-input-form')) {
+        // Mostra l'indicatore di "sta scrivendo" e poi il messaggio
+        if (!aiWidgetBody.querySelector('.ai-message')) {
             aiWidgetBody.innerHTML = `
-                <div class="ai-message">
-                    Ciao! Inserisci un numero e ti aiuterò a creare un'immagine mnemonica per ricordarlo.
+                <div class="typing-indicator">
+                    <span></span><span></span><span></span>
                 </div>
-                <form class="ai-input-form" id="aiForm">
-                    <input type="text" id="aiInput" placeholder="Es. 314" inputmode="numeric" pattern="[0-9]*">
-                    <button type="submit" id="aiSubmitBtn">Crea Eco</button>
-                </form>
-                <div class="ai-result" id="aiResult"></div>
             `;
-
-            document.getElementById('aiForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                handleAiSubmit();
-            });
+            aiWidgetTimeout = setTimeout(() => {
+                aiWidgetBody.innerHTML = `
+                    <div class="ai-message">
+                        Ciao! Sono l'assistente AI di Eco System. Attualmente sono in fase di sviluppo, ma presto potrò aiutarti a creare immagini mnemoniche personalizzate. A presto!
+                    </div>
+                `;
+            }, 2000);
         }
-    }
-
-    function handleAiSubmit() {
-        const input = document.getElementById('aiInput').value.trim();
-        const resultDiv = document.getElementById('aiResult');
-
-        if (!/^\d+$/.test(input)) {
-            resultDiv.innerHTML = `<div class="ai-message error">Inserisci solo numeri, per favore.</div>`;
-            return;
-        }
-        if (input.length > 10) {
-            resultDiv.innerHTML = `<div class="ai-message error">Numero troppo lungo! Prova con un massimo di 10 cifre.</div>`;
-            return;
-        }
-
-        resultDiv.innerHTML = `<div class="typing-indicator"><span></span><span></span><span></span></div>`;
-
-        setTimeout(() => {
-            const chunks = input.match(/.{1,2}/g) || [];
-            const wordData = chunks.map(chunk => {
-                if (dictionary[chunk] && dictionary[chunk].length > 0) {
-                    return { chunk, word: dictionary[chunk][0] }; // Prendi la prima parola per coerenza
-                }
-                return { chunk, word: null };
-            });
-
-            if (wordData.some(w => w.word === null)) {
-                const missingChunks = wordData.filter(w => w.word === null).map(w => w.chunk).join(', ');
-                resultDiv.innerHTML = `<div class="ai-message error">Non ho trovato parole per: ${missingChunks}. Prova a suggerirne una!</div>`;
-                return;
-            }
-
-            const story = generateMnemonicStory(wordData);
-            resultDiv.innerHTML = `<div class="ai-message">${story}</div>`;
-        }, 1200);
-    }
-
-    function generateMnemonicStory(wordData) {
-        const items = wordData.map(d => `<strong>${d.word}</strong> (${d.chunk})`);
-        
-        if (items.length === 0) {
-            return "Nessun numero inserito.";
-        }
-        if (items.length === 1) {
-            return `Immagina vividamente: ${items[0]}.`;
-        }
-        if (items.length === 2) {
-            const templates = [
-                `Pensa a ${items[0]} che interagisce con ${items[1]}.`,
-                `Visualizza ${items[0]} e ${items[1]} sulla stessa scena.`,
-                `Un ${items[0]} rotola verso ${items[1]}.`
-            ];
-            return templates[Math.floor(Math.random() * templates.length)];
-        }
-        if (items.length === 3) {
-            const templates = [
-                `Un ${items[0]} viene dato a ${items[1]}, che lo usa per colpire ${items[2]}.`,
-                `Sopra ${items[0]} c'è ${items[1]}, e accanto c'è ${items[2]}.`
-            ];
-            return templates[Math.floor(Math.random() * templates.length)];
-        }
-        
-        // Per storie più lunghe, crea una sequenza
-        let story = "Immagina questa sequenza: " + items.join(', poi ');
-        story += ".";
-        return story;
     }
 
     function closeAiWidget() {
