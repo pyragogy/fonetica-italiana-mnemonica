@@ -787,92 +787,92 @@ document.addEventListener('DOMContentLoaded', function() {
     hamburgerBtn.addEventListener('click', handleHamburgerToggle);
 
     document.getElementById('resetProgressBtn').addEventListener('click', resetGameState);
+    
+        // Event Listeners - Trainer
+        document.getElementById('suggestBtn').textContent = 'Cerca Parole'; // Rinominiamo il pulsante
 
-    // Event Listeners - Trainer
-    document.getElementById('suggestBtn').textContent = 'Cerca Parole'; // Rinominiamo il pulsante
+        // Suggestion Modal Logic
+        const suggestionModalOverlay = document.getElementById('suggestionModalOverlay');
+        const openSuggestionModalBtn = document.getElementById('openSuggestionModalBtn');
+        const closeSuggestionModalBtn = document.getElementById('closeSuggestionModalBtn');
+        const suggestionForm = document.getElementById('suggestionForm');
+        const suggestionFeedback = document.getElementById('suggestionFeedback');
 
-    // Suggestion Modal Logic
-    const suggestionModalOverlay = document.getElementById('suggestionModalOverlay');
-    const openSuggestionModalBtn = document.getElementById('openSuggestionModalBtn');
-    const closeSuggestionModalBtn = document.getElementById('closeSuggestionModalBtn');
-    const suggestionForm = document.getElementById('suggestionForm');
-    const suggestionFeedback = document.getElementById('suggestionFeedback');
-
-    openSuggestionModalBtn.addEventListener('click', () => {
-        suggestionModalOverlay.classList.add('show');
-        // Pre-compila il numero se presente nel trainer
-        const trainerNumber = document.getElementById('trainerInput').value;
-        if (/^\d+$/.test(trainerNumber)) {
-            document.getElementById('suggestion-number').value = trainerNumber;
-        }
-    });
-
-    const closeModal = () => {
-        suggestionModalOverlay.classList.remove('show');
-        suggestionFeedback.textContent = '';
-        suggestionForm.reset();
-    };
-
-    closeSuggestionModalBtn.addEventListener('click', closeModal);
-    suggestionModalOverlay.addEventListener('click', (e) => {
-        if (e.target === suggestionModalOverlay) {
-            closeModal();
-        }
-    });
-
-    suggestionForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const formData = new FormData(suggestionForm);
-        const submitButton = suggestionForm.querySelector('button[type="submit"]');
-        submitButton.disabled = true;
-        submitButton.textContent = 'Invio in corso...';
-
-        // Aggiungi il token reCAPTCHA ai dati del modulo
-        const token = grecaptcha.enterprise.getResponse();
-        formData.append('g-recaptcha-response', token);
-
-        fetch('/.netlify/functions/submit-suggestion', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString(),
-        })
-        .then(response => { // La risposta viene dalla nostra Netlify Function
-            suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
-            setTimeout(closeModal, 2000);
-        })
-        .catch((error) => {
-            suggestionFeedback.textContent = '❌ Errore. Riprova più tardi.';
-        })
-        .finally(() => {
-            submitButton.disabled = false;
-            submitButton.textContent = 'Invia Suggerimento';
-            grecaptcha.enterprise.reset(); // Resetta il widget reCAPTCHA
+        openSuggestionModalBtn.addEventListener('click', () => {
+            suggestionModalOverlay.classList.add('show');
+            // Pre-compila il numero se presente nel trainer
+            const trainerNumber = document.getElementById('trainerInput').value;
+            if (/^\d+$/.test(trainerNumber)) {
+                document.getElementById('suggestion-number').value = trainerNumber;
+            }
         });
-    });
 
-    document.getElementById('encodeBtn').addEventListener('click', () => setMode('encode'));
-    document.getElementById('decodeBtn').addEventListener('click', () => setMode('decode'));
-    document.getElementById('submitBtn').addEventListener('click', handleTrainerSubmit);
-    document.getElementById('suggestBtn').addEventListener('click', handleSuggestWords);
-    document.getElementById('trainerInput').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') handleTrainerSubmit();
-    });
+        const closeModal = () => {
+            suggestionModalOverlay.classList.remove('show');
+            suggestionFeedback.textContent = '';
+            suggestionForm.reset();
+        };
 
-                // Event Listeners - Quiz
-                document.getElementById('freeTab').addEventListener('click', () => setTrainerTab('free'));
-                document.getElementById('quizTab').addEventListener('click', () => setTrainerTab('quiz'));
-                document.getElementById('quizSubmitBtn').addEventListener('click', handleQuizSubmit);
-                document.getElementById('quizSkipBtn').addEventListener('click', handleQuizSkip);
-                document.getElementById('quizInput').addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') handleQuizSubmit();
-                });
-    // Welcome message
-    setTimeout(() => {
-        showAchievementToast({ 
-            name: 'Benvenuto! 👋', 
-            desc: 'Inizia il tuo viaggio nella mnemotecnica', 
-            icon: '✨' 
+        closeSuggestionModalBtn.addEventListener('click', closeModal);
+        suggestionModalOverlay.addEventListener('click', (e) => {
+            if (e.target === suggestionModalOverlay) {
+                closeModal();
+            }
         });
-    }, 1000);
-});
+
+        suggestionForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(suggestionForm);
+            const submitButton = suggestionForm.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Invio in corso...';
+
+            // Aggiungi il token reCAPTCHA ai dati del modulo
+            const token = grecaptcha.enterprise.getResponse();
+            formData.append('g-recaptcha-response', token);
+
+            fetch('/.netlify/functions/submit-suggestion', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString(),
+            })
+            .then(response => { // La risposta viene dalla nostra Netlify Function
+                suggestionFeedback.textContent = '✅ Grazie! Il tuo suggerimento è stato inviato con successo.';
+                setTimeout(closeModal, 2000);
+            })
+            .catch((error) => {
+                suggestionFeedback.textContent = '❌ Errore. Riprova più tardi.';
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Invia Suggerimento';
+                grecaptcha.enterprise.reset(); // Resetta il widget reCAPTCHA
+            });
+        });
+
+        document.getElementById('encodeBtn').addEventListener('click', () => setMode('encode'));
+        document.getElementById('decodeBtn').addEventListener('click', () => setMode('decode'));
+        document.getElementById('submitBtn').addEventListener('click', handleTrainerSubmit);
+        document.getElementById('suggestBtn').addEventListener('click', handleSuggestWords);
+        document.getElementById('trainerInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleTrainerSubmit();
+        });
+
+                    // Event Listeners - Quiz
+                    document.getElementById('freeTab').addEventListener('click', () => setTrainerTab('free'));
+                    document.getElementById('quizTab').addEventListener('click', () => setTrainerTab('quiz'));
+                    document.getElementById('quizSubmitBtn').addEventListener('click', handleQuizSubmit);
+                    document.getElementById('quizSkipBtn').addEventListener('click', handleQuizSkip);
+                    document.getElementById('quizInput').addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') handleQuizSubmit();
+                    });
+        // Welcome message
+        setTimeout(() => {
+            showAchievementToast({ 
+                name: 'Benvenuto! 👋', 
+                desc: 'Inizia il tuo viaggio nella mnemotecnica', 
+                icon: '✨' 
+            });
+        }, 1000);
+    });
