@@ -85,7 +85,7 @@ const dictionary = {
   
   // 70-79 (C/K/Q dura + altra cifra)
   "70": ["Casa", "Caso", "Caos", "Acoso"],
-  "71": ["Cane", "Cuneo", "Cono", "Acino"],
+  "71": ["Cane", "Cuneo", "Cono"],
   "72": ["Coda", "Quadro", "Cada", "Acuto"],
   "73": ["Cotta", "Quota", "Cotto", "Aceto"],
   "74": ["Coro", "Cuore", "Cara", "Acoro"],
@@ -271,7 +271,7 @@ const dictionary = {
   "224": ["Addora", "Addiro", "Adduro", "Addero"],
   "225": ["Addeggio", "Addoggia", "Adduggio", "Adducio"],
   "226": ["Addesso", "Addosso", "Addisso", "Addasso"],
-  "227": "Addocchio", "Addacco", "Adducco", "Addecco"],
+  "227": ["Addocchio", "Addacco", "Adducco", "Addecco"],
   "228": ["Addeva", "Addova", "Addiva", "Adduba"],
   "229": ["Addepa", "Addoppa", "Addipa", "Addappa"],
   
@@ -324,7 +324,7 @@ const dictionary = {
   "269": ["Adeseppa", "Adusappa", "Adisoppa", "Adasappa"],
   
   // 270-279 (D-C/K/Q dura + cifra)
-  "280": ["Adocaso", "Educoso", "Adicoso", "Adocoso"],
+  "270": ["Adocaso", "Educoso", "Adicoso", "Adocoso"],
   "271": ["Adocano", "Educano", "Adicano", "Adocino"],
   "272": ["Adocato", "Educato", "Adecuto", "Adicato"],
   "273": ["Adocetta", "Educata", "Adicata", "Adocotta"],
@@ -1174,7 +1174,6 @@ const dictionary = {
   "977": ["Peccacca", "Faccacca", "Apeccacca", "Opeccacca"],
   "978": ["Pecava", "Facava", "Apecava", "Opecava"],
   "979": ["Pecappa", "Facappa", "Apecappa", "Opecappa"],
-  
   // 980-989 (P/F-B/V + cifra)
   "980": ["Pevaso", "Faboso", "Apevaso", "Opevaso"],
   "981": ["Pevano", "Fabano", "Apevano", "Opevano"],
@@ -1186,7 +1185,6 @@ const dictionary = {
   "987": ["Pevacca", "Fabacca", "Apevacca", "Opevacca"],
   "988": ["Pevava", "Fabava", "Apevava", "Opevava"],
   "989": ["Pevappa", "Fabappa", "Apevappa", "Opevappa"],
-  
   // 990-999 (P/F-P/F + cifra)
   "990": ["Peposo", "Fafoso", "Apeposo", "Opeposo"],
   "991": ["Pepano", "Fafano", "Apepano", "Opepano"],
