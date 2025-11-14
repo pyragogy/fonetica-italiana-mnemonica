@@ -832,7 +832,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const token = grecaptcha.enterprise.getResponse();
         formData.append('g-recaptcha-response', token);
 
-        fetch('/.netlify/functions/submit-suggestion', {
+        fetch('/.netlify/functions/submit-suggestion', { // La chiamata AJAX fallisce
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
             body: new URLSearchParams(formData).toString(),
