@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary Test</title>
+</head>
+<body>
+    <h1>Dictionary Keys</h1>
+    <div id="output"></div>
+    <script src="dictionary.js"></script>
+    <script>
+        const outputDiv = document.getElementById('output');
+        if (typeof dictionary !== 'undefined') {
+            const keys = Object.keys(dictionary);
+            outputDiv.textContent = keys.join(', ');
+        } else {
+            outputDiv.textContent = 'Error: dictionary object not found.';
+        }
+    </script>
+</body>
+</html>
