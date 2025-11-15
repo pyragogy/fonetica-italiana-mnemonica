@@ -7,11 +7,14 @@ const MATRIX = {
     '2': { letter: 'D', examples: 'Due, Duna', logic: 'Occlusiva dentale', tip: 'Due inizia con D', color: '#ED64A6' },
     '3': { letter: 'T', examples: 'Tre, Tè', logic: 'Occlusiva alveolare', tip: 'Tre inizia con T', color: '#ECC94B' },
     '4': { letter: 'R', examples: 'Re, Ramo,', logic: 'Vibrante', tip: 'Quattro finisce con R', color: '#9F7AEA' },
-    '5': { letter: 'C-G', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
-    '6': { letter: 'S-SC', examples: 'Sole, Sala', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
-    '7': { letter: 'K-Q', examples: 'Cane, Culla', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
-    '8': { letter: 'B-V', examples: 'Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
-    '9': { letter: 'P-F', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
+    '5': { letter: '【C ⦙ G】', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '6': { letter: '【S ⦙ SC】', examples: 'Sole, Sala', logic: 'Sibilante dolce', tip: 'Suono che serpeggia', color: '#38B2AC' },
+    '5': { letter: '【C ⦙ G】', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '7': { letter: '【K ⦙ Q】', examples: 'Cane, Culla', logic: 'Velare (dura)', tip: 'Suono di forza', color: '#48BB78' },
+    '5': { letter: '【C ⦙ G】', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '8': { letter: '【B ⦙ V】', examples: 'Via, Bue', logic: 'Labiodentale', tip: 'B assomiglia a 8', color: '#ED64A6' },
+    '5': { letter: '【C ⦙ G】', examples: 'Cielo, Gelo', logic: 'Palatale (dolce)', tip: 'Suono dolce e fluido', color: '#FC8181' },
+    '9': { letter: '【P ⦙ F】', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
 };
 
 const REVERSE_MATRIX = {
