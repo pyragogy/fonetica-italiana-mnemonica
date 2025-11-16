@@ -17,6 +17,7 @@ const MATRIX = {
     '9': { letter: '【P ⦙ F】', examples: 'Palla, Fumo', logic: 'Labiale', tip: 'P rovesciata ricorda 9', color: '#ECC94B' },
 };
 
+
 const REVERSE_MATRIX = {
     'Z': '0', 'N': '1', 'D': '2', 'T': '3', 'R': '4',
     'S': '6', 'K': '7', 'Q': '7',
